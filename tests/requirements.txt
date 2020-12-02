@@ -1,0 +1,5 @@
+audiofile
+pytest
+pytest-cov
+pytest-doctestplus
+pytest-flake8

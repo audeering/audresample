@@ -1,0 +1,6 @@
+jupyter-sphinx
+matplotlib
+sphinx
+sphinx-audeering-theme
+sphinx-autodoc-typehints
+sphinx-copybutton
