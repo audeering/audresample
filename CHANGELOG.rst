@@ -7,6 +7,14 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+
+Unreleased
+----------
+
+* Fixed: Updating binaries to RELEASE versions (execution time greatly reduced!)
+
+
+
 Version 0.1.0 (2020-12-02)
 --------------------------
 
