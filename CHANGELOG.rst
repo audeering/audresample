@@ -8,8 +8,8 @@ and this project adheres to `Semantic Versioning`_.
 
 
 
-Unreleased
-----------
+Version 0.1.1 (2021-15-01)
+--------------------------
 
 * Fixed: Updating binaries to RELEASE versions (execution time greatly reduced!)
 
