@@ -69,6 +69,7 @@ def remix(
         channels: typing.Union[int, typing.Sequence[int]] = None,
         mixdown: bool = False,
         *,
+        upmix: str = None,
         always_copy: bool = False,
 ) -> np.ndarray:
     r"""Remix a signal.
@@ -91,6 +92,13 @@ def remix(
     range(3) first three channels
     ======== ===================================
 
+    If the input signal has not enough channels
+    to fulfill the ``channels`` selection
+    you can select an ``upmix`` method
+    to fill in the missing channels.
+    The workflow of :func:`audresample.remix` is always
+    upmix -> channel selection -> downmix.
+
     The returned signal always is of type ``np.float32``
     with shape (``channels``, ``samples``).
 
@@ -98,6 +106,8 @@ def remix(
         signal: array with signal values
         channels: channel selection, see description
         mixdown: apply mono mix-down on selection
+        upmix: if ``'zeros'`` it will pad missing channels with zeros,
+            if ``'repeat'`` it will pad by repeating the existing channels
         always_copy: if ``True`` always returns a new object
 
     Returns:
@@ -105,19 +115,47 @@ def remix(
 
     Raises:
         RuntimeError: if input signal has more than two dimensions
-        RuntimeError: if channel selection is invalid
+        ValueError: if channel selection is invalid and upmix is ``None``
+        ValueError: if specified upmix method is not known
 
     """
     signal = _check_signal(signal)
 
     if channels is not None:
-        max_channels = channels if isinstance(channels, int) else max(channels)
+        if isinstance(channels, int):
+            channels = [channels]
+        max_channel = max(
+            [
+                max(channels) + 1,
+                abs(min(channels)),  # we can have -1 entries
+            ]
+        )
         num_channels = signal.shape[0]
-        if max_channels >= num_channels:
-            raise RuntimeError(
-                f"Invalid channel selection {channels}, "
-                f"input signal has only {num_channels} channels."
-            )
+        if max_channel > num_channels:
+            if upmix is None:
+                raise ValueError(
+                    f"Invalid channel selection {channels}, "
+                    f"input signal has only {num_channels} channels.\n"
+                    f"You can use the 'upmix' argument "
+                    f"to increase available channels."
+                )
+            elif upmix == 'zeros':
+                signal_ex = np.zeros(
+                    (max_channel, signal.shape[1]),
+                    dtype=signal.dtype,
+                )
+                signal_ex[:signal.shape[0], :] = signal
+                signal = signal_ex
+            elif upmix == 'repeat':
+                # Upmix signal with [0, 1, 0, 1, ...]
+                num_repetitions = int(np.ceil(max_channel / signal.shape[0]))
+                signal_ex = np.concatenate([signal] * num_repetitions, axis=0)
+                signal = signal_ex[:max_channel, :]
+            else:
+                raise ValueError(
+                    f"Invalid upmix selection '{upmix}', "
+                    f"has to be 'zeros', 'repeat', or None."
+                )
         signal = np.atleast_2d(signal[channels, :])
 
     num_channels = signal.shape[0]
