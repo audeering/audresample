@@ -12,10 +12,13 @@ print(os.path.exists(bin_path))
 print(os.path.exists(bin_path.replace('\\', '\\\\')))
 if os.name == 'nt':  # pragma: no cover
     lib_path = os.path.join(bin_path, 'audresample.dll')
+    print(lib_path)
+    print(os.path.exists(bin_path))
     lib_path = lib_path.replace('\\', '\\\\')
+    print(lib_path)
+    print(os.path.exists(bin_path))
 else:
     lib_path = os.path.join(bin_path, 'libaudresample.so')  # pragma: no cover
-print(lib_path)
 lib = ctypes.cdll.LoadLibrary(lib_path)
 
 
