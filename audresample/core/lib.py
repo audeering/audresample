@@ -9,6 +9,7 @@ root = os.path.dirname(os.path.realpath(__file__))
 bin_path = os.path.join(root, 'bin')
 if os.name == 'nt':
     lib_path = os.path.join(bin_path, 'audresample.dll')  # pragma: no cover
+    lib_path = lib_path.replace('\\', '\\\\')
 else:
     lib_path = os.path.join(bin_path, 'libaudresample.so')  # pragma: no cover
 lib = ctypes.cdll.LoadLibrary(lib_path)
