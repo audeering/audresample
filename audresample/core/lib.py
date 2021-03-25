@@ -12,6 +12,7 @@ if os.name == 'nt':  # pragma: no cover
     lib_path = lib_path.replace('\\', '\\\\')
 else:
     lib_path = os.path.join(bin_path, 'libaudresample.so')  # pragma: no cover
+print(lib_path)
 lib = ctypes.cdll.LoadLibrary(lib_path)
 
 
