@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-18.04, windows-latest ]
+        os: [ ubuntu-18.04 ]
         python-version: [3.6]
         include:
           - os: ubuntu-latest
@@ -33,10 +33,6 @@ jobs:
         sudo apt-get update
         sudo apt-get install --no-install-recommends --yes libsndfile1 sox
       if: matrix.os == 'ubuntu-latest' || matrix.os == 'ubuntu-18.04'
-
-    - name: Prepare Windows
-      run: choco install sox.portable
-      if: matrix.os == 'windows-latest'
 
     - name: Install dependencies
       run: |
