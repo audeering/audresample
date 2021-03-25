@@ -7,6 +7,7 @@ import ctypes
 root = os.path.dirname(os.path.realpath(__file__))
 
 bin_path = os.path.join(root, 'bin')
+print(bin_path)
 if os.name == 'nt':  # pragma: no cover
     lib_path = os.path.join(bin_path, 'audresample.dll')
     lib_path = lib_path.replace('\\', '\\\\')
