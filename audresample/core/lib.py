@@ -7,10 +7,21 @@ import ctypes
 root = os.path.dirname(os.path.realpath(__file__))
 
 bin_path = os.path.join(root, 'bin')
-if os.name == 'nt':
-    lib_path = os.path.join(bin_path, 'audresample.dll')  # pragma: no cover
+print(bin_path)
+print(os.path.exists(bin_path))
+print(os.path.exists(bin_path.replace('\\', '\\\\')))
+if os.name == 'nt':  # pragma: no cover
+    lib_path = os.path.join(bin_path, 'audresample.dll')
+    # print(lib_path)
+    # print(os.path.exists(bin_path))
+    # lib_path = lib_path.replace('\\', '\\\\')
+    # print(lib_path)
+    # print(os.path.exists(bin_path))
+    lib_path = fr"{lib_path}"
 else:
     lib_path = os.path.join(bin_path, 'libaudresample.so')  # pragma: no cover
+print(lib_path)
+print(os.path.exists(lib_path))
 lib = ctypes.cdll.LoadLibrary(lib_path)
 
 
