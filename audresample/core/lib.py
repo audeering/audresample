@@ -8,13 +8,13 @@ import platform
 root = os.path.dirname(os.path.realpath(__file__))
 
 bin_path = os.path.join(root, 'bin')
-if platform.system() == 'Windows':
-    lib_path = os.path.join(bin_path, 'audresample.dll')  # pragma: no cover
-elif platform.system() == 'Linux':
-    lib_path = os.path.join(bin_path, 'libaudresample.so')  # pragma: no cover
-elif platform.system() == 'Darwin':
-    lib_path = os.path.join(bin_path, 'libaudresample.dylib')  # pragma: no cover
-else:
+if platform.system() == 'Windows':  # pragma: no cover
+    lib_path = os.path.join(bin_path, 'audresample.dll')
+elif platform.system() == 'Linux':  # pragma: no cover
+    lib_path = os.path.join(bin_path, 'libaudresample.so')
+elif platform.system() == 'Darwin':  # pragma: no cover
+    lib_path = os.path.join(bin_path, 'libaudresample.dylib')
+else:  # pragma: no cover
     raise RuntimeError("Unsupported platform")
 lib = ctypes.cdll.LoadLibrary(lib_path)
 
