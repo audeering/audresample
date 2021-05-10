@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>audresample &mdash; audresample Documentation</title>
@@ -30,6 +31,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/audeering.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/audeering.css" type="text/css" />
   <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
   <link rel="stylesheet" href="_static/thebelab.css" type="text/css" />
@@ -70,7 +73,7 @@
             
             
               <div class="version">
-                v0.1.4
+                v0.1.5
               </div>
             
           
@@ -167,7 +170,7 @@
         
             
             
-              <a href="https://github.com/audeering/audresample/blob/v0.1.4/docs/api.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/audeering/audresample/blob/v0.1.5/docs/api.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -181,13 +184,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-audresample">
+  <section id="module-audresample">
 <span id="audresample"></span><h1>audresample<a class="headerlink" href="#module-audresample" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="am-fm-synth">
+<section id="am-fm-synth">
 <h2>am_fm_synth<a class="headerlink" href="#am-fm-synth" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="audresample.am_fm_synth">
-<code class="sig-prename descclassname"><span class="pre">audresample.</span></code><code class="sig-name descname"><span class="pre">am_fm_synth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_rate</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">numpy.float32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/audresample/core/api.html#am_fm_synth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.am_fm_synth" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="audresample.am_fm_synth">
+<span class="sig-prename descclassname"><span class="pre">audresample.</span></span><span class="sig-name descname"><span class="pre">am_fm_synth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_rate</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">numpy.float32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/audresample/core/api.html#am_fm_synth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.am_fm_synth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Synthesizes an AM/FM signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -207,27 +210,27 @@
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="config">
+</section>
+<section id="config">
 <h2>config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="audresample.config">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">audresample.</span></code><code class="sig-name descname"><span class="pre">config</span></code><a class="reference internal" href="_modules/audresample/core/config.html#config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.config" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="audresample.config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">audresample.</span></span><span class="sig-name descname"><span class="pre">config</span></span><a class="reference internal" href="_modules/audresample/core/config.html#config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get/set defaults for the <a class="reference internal" href="#module-audresample" title="audresample"><code class="xref py py-mod docutils literal notranslate"><span class="pre">audresample</span></code></a> module.</p>
 <dl class="py attribute">
-<dt id="audresample.config.DEFAULT_RESAMPLE_QUALITY">
-<code class="sig-name descname"><span class="pre">DEFAULT_RESAMPLE_QUALITY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'h'</span></em><a class="headerlink" href="#audresample.config.DEFAULT_RESAMPLE_QUALITY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="audresample.config.DEFAULT_RESAMPLE_QUALITY">
+<span class="sig-name descname"><span class="pre">DEFAULT_RESAMPLE_QUALITY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'h'</span></em><a class="headerlink" href="#audresample.config.DEFAULT_RESAMPLE_QUALITY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default resample quality.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="remix">
+</section>
+<section id="remix">
 <h2>remix<a class="headerlink" href="#remix" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="audresample.remix">
-<code class="sig-prename descclassname"><span class="pre">audresample.</span></code><code class="sig-name descname"><span class="pre">remix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixdown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upmix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/audresample/core/api.html#remix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.remix" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="audresample.remix">
+<span class="sig-prename descclassname"><span class="pre">audresample.</span></span><span class="sig-name descname"><span class="pre">remix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixdown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upmix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/audresample/core/api.html#remix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.remix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remix a signal.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">channels</span></code> arguments allows to select one or more
 channels and/or re-order them. Examples:</p>
@@ -309,12 +312,12 @@ if <code class="docutils literal notranslate"><span class="pre">'repeat'</span><
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="resample">
+</section>
+<section id="resample">
 <h2>resample<a class="headerlink" href="#resample" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="audresample.resample">
-<code class="sig-prename descclassname"><span class="pre">audresample.</span></code><code class="sig-name descname"><span class="pre">resample</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_rate</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/audresample/core/api.html#resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.resample" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="audresample.resample">
+<span class="sig-prename descclassname"><span class="pre">audresample.</span></span><span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_rate</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/audresample/core/api.html#resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.resample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resample signal to a new sampling rate.</p>
 <p>The returned signal is always of type <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>
 with shape (<code class="docutils literal notranslate"><span class="pre">channels</span></code>, <code class="docutils literal notranslate"><span class="pre">samples</span></code>).</p>
@@ -324,7 +327,7 @@ with shape (<code class="docutils literal notranslate"><span class="pre">channel
 <li><p><strong>signal</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – array with signal values</p></li>
 <li><p><strong>original_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – original sample rate of the input signal in Hz</p></li>
 <li><p><strong>target_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – target sampling rate in Hz</p></li>
-<li><p><strong>quality</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ResampleQuality</span></code>) – quality of the conversion algorithm</p></li>
+<li><p><strong>quality</strong> (<a class="reference internal" href="api-define.html#audresample.define.ResampleQuality" title="audresample.core.define.ResampleQuality"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResampleQuality</span></code></a>) – quality of the conversion algorithm</p></li>
 <li><p><strong>always_copy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> always returns a new object</p></li>
 </ul>
 </dd>
@@ -340,8 +343,8 @@ with shape (<code class="docutils literal notranslate"><span class="pre">channel
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -366,7 +369,7 @@ with shape (<code class="docutils literal notranslate"><span class="pre">channel
         
         
         
-          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2021/03/26 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2021/05/10 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
@@ -398,6 +401,7 @@ with shape (<code class="docutils literal notranslate"><span class="pre">channel
     
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
