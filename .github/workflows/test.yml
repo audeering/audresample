@@ -12,16 +12,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-18.04 ]
+        os: [ ubuntu-18.04, macOS-latest ]
         python-version: [3.6]
         include:
           - os: ubuntu-latest
             python-version: 3.7
           - os: ubuntu-latest
-            python-version: 3.8
-          - os: macos-latest
-            python-version: 3.7
-          - os: macos-latest
             python-version: 3.8
 
     steps:
