@@ -1,7 +1,6 @@
 .. documentation master file
 
 .. include:: ../README.rst
-    :end-line: 10
 
 .. toctree::
     :caption: Getting started

@@ -1,37 +1,40 @@
 Contributing
 ============
 
-If you would like to add new functionality fell free to create a `merge
-request`_ . If you find errors, omissions, inconsistencies or other things
+Everyone is invited to contribute to this project.
+Feel free to create a `pull request`_ .
+If you find errors, omissions, inconsistencies or other things
 that need improvement, please create an issue_.
-Contributions are always welcome!
 
-.. _issue:
-    https://gitlab.audeering.com/tools/pyaudresample/issues/new?issue%5BD=
-.. _merge request:
-    https://gitlab.audeering.com/tools/pyaudresample/merge_requests/new
+.. _issue: https://github.com/audeering/audresample/issues/new/
+.. _pull request: https://github.com/audeering/audresample/compare/
+
 
 Development Installation
 ------------------------
 
-Instead of pip-installing the latest release from PyPI, you should get the
-newest development version from Gitlab_::
+Instead of pip-installing the latest release from PyPI,
+you should get the newest development version from Github_::
 
-    git clone git@srv-app-01.audeering.local:tools/pyaudresample.git
-    cd pyaudresample
-    # Use virtual environment
+    git clone https://github.com/audeering/audresample/
+    cd audresample
+    # Create virutal environment for this project
+    # e.g.
+    # virtualenv --python="python3"  $HOME/.envs/audresample
+    # source $HOME/.envs/audresample/bin/activate
     pip install -r requirements.txt
 
-.. _Gitlab: https://gitlab.audeering.com/tools/pyaudresample
+.. _Github: https://github.com/audeering/audresample
 
-This way, your installation always stays up-to-date, even if you pull new
-changes from the Gitlab repository.
+This way, your installation always stays up-to-date,
+even if you pull new changes from the Github repository.
+
 
 Building the Documentation
 --------------------------
 
-If you make changes to the documentation, you can re-create the HTML pages
-using Sphinx_.
+If you make changes to the documentation,
+you can re-create the HTML pages using Sphinx_.
 You can install it and a few other necessary packages with::
 
     pip install -r requirements.txt
@@ -41,13 +44,15 @@ To create the HTML pages, use::
 
 	python -m sphinx docs/ build/sphinx/html -b html
 
-The generated files will be available in the directory ``build/sphinx/html/``.
+The generated files will be available
+in the directory :file:`build/sphinx/html/`.
 
 It is also possible to automatically check if all links are still valid::
 
     python -m sphinx docs/ build/sphinx/linkcheck -b linkcheck
 
 .. _Sphinx: http://sphinx-doc.org/
+
 
 Running the Tests
 -----------------
@@ -61,8 +66,8 @@ To execute the tests, simply run::
 
     python -m pytest
 
-.. _pytest:
-    https://pytest.org/
+.. _pytest: https://pytest.org/
+
 
 Creating a New Release
 ----------------------
@@ -71,9 +76,5 @@ New releases are made using the following steps:
 
 #. Update ``CHANGELOG.rst``
 #. Commit those changes as "Release X.Y.Z"
-#. Create an (annotated) tag with ``git tag -a vX.Y.Z``
-#. Make sure you have an `artifactory-tokenizer`_ project
-#. Push the commit and the tag to Gitlab
-
-.. _artifactory-tokenizer:
-    https://gitlab.audeering.com/devops/artifactory/tree/master/token
+#. Create an (annotated) tag with ``git tag -a X.Y.Z``
+#. Push the commit and the tag to Github

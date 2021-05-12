@@ -1,5 +1,6 @@
-import os
 import ctypes
+import os
+import platform
 
 
 # load library
@@ -7,21 +8,14 @@ import ctypes
 root = os.path.dirname(os.path.realpath(__file__))
 
 bin_path = os.path.join(root, 'bin')
-print(bin_path)
-print(os.path.exists(bin_path))
-print(os.path.exists(bin_path.replace('\\', '\\\\')))
-if os.name == 'nt':  # pragma: no cover
+if platform.system() == 'Windows':  # pragma: no cover
     lib_path = os.path.join(bin_path, 'audresample.dll')
-    # print(lib_path)
-    # print(os.path.exists(bin_path))
-    # lib_path = lib_path.replace('\\', '\\\\')
-    # print(lib_path)
-    # print(os.path.exists(bin_path))
-    lib_path = fr"{lib_path}"
-else:
-    lib_path = os.path.join(bin_path, 'libaudresample.so')  # pragma: no cover
-print(lib_path)
-print(os.path.exists(lib_path))
+elif platform.system() == 'Linux':  # pragma: no cover
+    lib_path = os.path.join(bin_path, 'libaudresample.so')
+elif platform.system() == 'Darwin':  # pragma: no cover
+    lib_path = os.path.join(bin_path, 'libaudresample.dylib')
+else:  # pragma: no cover
+    raise RuntimeError("Unsupported platform")
 lib = ctypes.cdll.LoadLibrary(lib_path)
 
 

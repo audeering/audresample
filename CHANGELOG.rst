@@ -7,19 +7,37 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
-Version 0.1.2 (2021-18-03)
+Version 0.1.5 (2021-05-10)
+--------------------------
+
+* Added: macOS support
+
+
+Version 0.1.4 (2021-03-26)
+--------------------------
+
+* Fixed: "Edit on Github" link in the docs
+
+
+Version 0.1.3 (2021-03-25)
+--------------------------
+
+* Changed: move to Github and release as open source
+
+
+Version 0.1.2 (2021-03-18)
 --------------------------
 
 * Added: ``upmix`` argument to ``remix()``
 
 
-Version 0.1.1 (2021-15-01)
+Version 0.1.1 (2021-01-15)
 --------------------------
 
 * Fixed: Updating binaries to RELEASE versions (execution time greatly reduced!)
 
 
-Version 0.1.0 (2020-12-02)
+Version 0.1.0 (2020-02-12)
 --------------------------
 
 * Added: Initial release
