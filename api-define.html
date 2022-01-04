@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>audresample.define &mdash; audresample Documentation</title>
@@ -62,7 +61,7 @@
 
           <a href="index.html">
           
-            <img src="_static/images/audeering.svg" class="logo" alt="audEERING"/>
+            <img src="_static/images/audeering.png" class="logo" alt="audEERING"/>
           
           
             <span> audresample</span>
@@ -73,7 +72,7 @@
             
             
               <div class="version">
-                v0.1.6
+                v1.0.0
               </div>
             
           
@@ -97,12 +96,12 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">audresample</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">audresample.define</a><ul>
@@ -111,7 +110,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Development</span></p>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -138,86 +137,56 @@
         
         <div class="rst-content">
         
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>audresample.define</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
-              <a href="https://github.com/audeering/audresample/blob/v0.1.6/docs/api-define.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
+              <a href="https://github.com/audeering/audresample/" class="fa fa-github"> GitHub</a>
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="module-audresample.define">
+  <div class="section" id="module-audresample.define">
 <span id="audresample-define"></span><h1>audresample.define<a class="headerlink" href="#module-audresample.define" title="Permalink to this headline">¶</a></h1>
-<section id="resamplequality">
+<div class="section" id="resamplequality">
 <h2>ResampleQuality<a class="headerlink" href="#resamplequality" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="audresample.define.ResampleQuality">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">audresample.define.</span></span><span class="sig-name descname"><span class="pre">ResampleQuality</span></span><a class="headerlink" href="#audresample.define.ResampleQuality" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">audresample.define.</span></span><span class="sig-name descname"><span class="pre">ResampleQuality</span></span><a class="headerlink" href="#audresample.define.ResampleQuality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Quality levels for resampling.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="audresample.define.ResampleQuality.HIGH">
-<span class="sig-name descname"><span class="pre">HIGH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'h'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.HIGH" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">HIGH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'h'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.HIGH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="audresample.define.ResampleQuality.LOW">
-<span class="sig-name descname"><span class="pre">LOW</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'l'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.LOW" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'l'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.LOW" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="audresample.define.ResampleQuality.MEDIUM">
-<span class="sig-name descname"><span class="pre">MEDIUM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'m'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.MEDIUM" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">MEDIUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'m'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.MEDIUM" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="audresample.define.ResampleQuality.QUICK">
-<span class="sig-name descname"><span class="pre">QUICK</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'q'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.QUICK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">QUICK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'q'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.QUICK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="audresample.define.ResampleQuality.VERY_HIGH">
-<span class="sig-name descname"><span class="pre">VERY_HIGH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'v'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.VERY_HIGH" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">VERY_HIGH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'v'</span></em><a class="headerlink" href="#audresample.define.ResampleQuality.VERY_HIGH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -242,7 +211,7 @@
         
         
         
-          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2021/06/17 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2022/01/04 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
@@ -250,7 +219,7 @@
   <div role="contentinfo">
     <p>
         
-      &copy; 2020-2021 audEERING GmbH
+      &copy; 2020-2022 audEERING GmbH
     </p>
   </div> 
 
