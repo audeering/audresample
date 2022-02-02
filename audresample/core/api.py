@@ -158,18 +158,7 @@ def remix(
 
     num_channels = signal.shape[0]
     if mixdown and num_channels > 1:
-        num_samples = signal.shape[1]
-        # as a side-effect of storing channel first
-        # we need to transpose and flatten the channel in memory
-        signal = signal.transpose().ravel()
-        signal_mono = np.empty((1, num_samples), dtype=np.float32)
-        lib.do_mono_mixdown(
-            signal_mono.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
-            signal.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
-            int(num_samples),
-            int(num_channels),
-        )
-        return signal_mono
+        return np.atleast_2d(np.mean(signal, axis=0))
 
     if always_copy:
         return signal.copy()

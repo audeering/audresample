@@ -246,6 +246,14 @@ def mixdown(signal):
             mixdown(audresample.am_fm_synth(16000, 2, 16000)),
         ),
         (
+            np.zeros((3, 16000), dtype='float64'),
+            None,
+            True,
+            None,
+            False,
+            np.zeros((1, 16000), dtype='float64'),
+        ),
+        (
             audresample.am_fm_synth(16000, 3, 16000),
             [0, 1],
             True,
@@ -326,6 +334,8 @@ def test_remix_signal(
         upmix=upmix,
         always_copy=always_copy,
     )
+    print(signal)
+    print(result)
     assert signal.dtype == expect.dtype
     np.testing.assert_equal(result, expect)
     if (
