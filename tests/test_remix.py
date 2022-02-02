@@ -1,3 +1,4 @@
+import ctypes
 from glob import glob
 from os import path
 
@@ -14,7 +15,21 @@ def set_ones(signal, channels):
 
 
 def mixdown(signal):
-    return np.atleast_2d(np.mean(signal, axis=0))
+    signal = np.atleast_2d(signal)
+    num_channels = signal.shape[0]
+    if num_channels < 2:
+        return signal
+    else:
+        num_samples = signal.shape[1]
+        signal = signal.transpose().ravel()
+        signal_mono = np.empty((1, num_samples), dtype=np.float32)
+        audresample.core.lib.lib.do_mono_mixdown(
+            signal_mono.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
+            signal.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
+            int(num_samples),
+            int(num_channels),
+        )
+        return np.atleast_2d(signal_mono)
 
 
 @pytest.mark.parametrize(
