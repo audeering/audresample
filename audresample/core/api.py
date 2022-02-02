@@ -97,8 +97,7 @@ def remix(
     The workflow of :func:`audresample.remix` is always
     upmix -> channel selection -> downmix.
 
-    The returned signal always is of type ``np.float32``
-    with shape (``channels``, ``samples``).
+    The returned signal always of shape (``channels``, ``samples``).
 
     Args:
         signal: array with signal values
