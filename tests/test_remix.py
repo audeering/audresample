@@ -71,14 +71,6 @@ def mixdown(signal):
         ),
         # single channel
         (
-            np.zeros((16000,)),
-            None,
-            False,
-            None,
-            False,
-            np.zeros((1, 16000), dtype=np.float32),
-        ),
-        (
             np.zeros((1, 16000), np.float32),
             None,
             False,
@@ -264,7 +256,7 @@ def mixdown(signal):
         ),
         # wrong channel index
         pytest.param(
-            np.zeros((2, 16000)),
+            np.zeros((2, 16000), dtype=np.float32),
             2,
             False,
             None,
@@ -273,7 +265,7 @@ def mixdown(signal):
             marks=pytest.mark.xfail(raises=ValueError),
         ),
         pytest.param(
-            np.zeros((2, 16000)),
+            np.zeros((2, 16000), dtype=np.float32),
             [0, 1, 2],
             False,
             None,
@@ -291,9 +283,19 @@ def mixdown(signal):
             None,
             marks=pytest.mark.xfail(raises=RuntimeError),
         ),
+        # wrong dtype
+        pytest.param(
+            np.zeros((16000,)),
+            None,
+            False,
+            None,
+            False,
+            np.zeros((1, 16000), dtype=np.float32),
+            marks=pytest.mark.xfail(raises=RuntimeError),
+        ),
         # wrong upmix type
         pytest.param(
-            np.zeros((2, 16000)),
+            np.zeros((2, 16000), dtype=np.float32),
             2,
             False,
             'fancy',

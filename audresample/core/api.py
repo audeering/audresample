@@ -18,7 +18,10 @@ def _check_signal(
             f"got {signal.ndim}."
         )
     if signal.dtype != np.float32:
-        signal = signal.astype(np.float32)
+        raise RuntimeError(
+            f"Input signal must be of type float32, "
+            f"got {signal.dtype}."
+        )
     return np.atleast_2d(signal)
 
 
