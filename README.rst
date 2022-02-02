@@ -7,6 +7,8 @@ audresample
 Python wrapper for `audresamplelib`_
 that provides functions to
 resample and remix audio signals.
+The resampling library does only support
+single precision signals.
 
 Have a look at the installation_ and usage_ instructions.
 
