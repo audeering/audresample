@@ -71,12 +71,12 @@ def mixdown(signal):
         ),
         # single channel
         (
-            np.zeros((16000,)),
+            np.zeros((16000,), dtype=np.float64),
             None,
             False,
             None,
             False,
-            np.zeros((1, 16000), dtype=np.float32),
+            np.zeros((1, 16000), dtype=np.float64),
         ),
         (
             np.zeros((1, 16000), np.float32),
@@ -165,12 +165,12 @@ def mixdown(signal):
         ),
         # multiple channels
         (
-            set_ones(np.zeros((4, 16000), np.float32), 2),
+            set_ones(np.zeros((4, 16000), np.float64), 2),
             2,
             False,
             None,
             False,
-            np.ones((1, 16000), dtype=np.float32),
+            np.ones((1, 16000), dtype=np.float64),
         ),
         (
             set_ones(np.zeros((4, 16000), np.float32), -1),
@@ -262,6 +262,14 @@ def mixdown(signal):
             True,
             np.zeros((1, 16000), dtype=np.float32),
         ),
+        (
+            np.zeros((1, 16000), dtype=np.float64),
+            None,
+            False,
+            None,
+            True,
+            np.zeros((1, 16000), dtype=np.float64),
+        ),
         # wrong channel index
         pytest.param(
             np.zeros((2, 16000)),
@@ -303,7 +311,7 @@ def mixdown(signal):
         ),
     ]
 )
-def test_resample_signal(
+def test_remix_signal(
         signal,
         channels,
         mixdown,
@@ -318,11 +326,14 @@ def test_resample_signal(
         upmix=upmix,
         always_copy=always_copy,
     )
+    assert signal.dtype == expect.dtype
     np.testing.assert_equal(result, expect)
-    if signal.size > 0 and\
-            channels is None and\
-            not mixdown and\
-            signal.dtype == np.float32:
+    if (
+            signal.size > 0
+            and channels is None
+            and not mixdown
+            and signal.ndim == 2
+    ):
         if always_copy:
             assert id(signal) != id(result)
         else:

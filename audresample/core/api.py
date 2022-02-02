@@ -17,8 +17,6 @@ def _check_signal(
             f"Input signal must have 1 or 2 dimension, "
             f"got {signal.ndim}."
         )
-    if signal.dtype != np.float32:
-        signal = signal.astype(np.float32)
     return np.atleast_2d(signal)
 
 
@@ -207,6 +205,10 @@ def resample(
 
     """
     signal = _check_signal(signal)
+
+    # We can only handle float32 signals
+    if signal.dtype != np.float32:
+        signal = signal.astype(np.float32)
 
     if original_rate == target_rate or signal.size == 0:
         if always_copy:
