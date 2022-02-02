@@ -350,8 +350,6 @@ def test_remix_signal(
         upmix=upmix,
         always_copy=always_copy,
     )
-    print(signal)
-    print(result)
     assert signal.dtype == expect.dtype
     np.testing.assert_equal(result, expect)
     if (
