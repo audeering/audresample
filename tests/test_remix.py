@@ -23,6 +23,7 @@ def mixdown(signal):
         num_samples = signal.shape[1]
         signal = signal.transpose().ravel()
         signal_mono = np.empty((1, num_samples), dtype=np.float32)
+        # Mixdown like it is done in devAIce
         audresample.core.lib.lib.do_mono_mixdown(
             signal_mono.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
             signal.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
