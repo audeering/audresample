@@ -17,8 +17,6 @@ def _check_signal(
             f"Input signal must have 1 or 2 dimension, "
             f"got {signal.ndim}."
         )
-    if signal.dtype != np.float32:
-        signal = signal.astype(np.float32)
     return np.atleast_2d(signal)
 
 
@@ -99,8 +97,7 @@ def remix(
     The workflow of :func:`audresample.remix` is always
     upmix -> channel selection -> downmix.
 
-    The returned signal always is of type ``np.float32``
-    with shape (``channels``, ``samples``).
+    The returned signal always of shape (``channels``, ``samples``).
 
     Args:
         signal: array with signal values
@@ -160,18 +157,7 @@ def remix(
 
     num_channels = signal.shape[0]
     if mixdown and num_channels > 1:
-        num_samples = signal.shape[1]
-        # as a side-effect of storing channel first
-        # we need to transpose and flatten the channel in memory
-        signal = signal.transpose().ravel()
-        signal_mono = np.empty((1, num_samples), dtype=np.float32)
-        lib.do_mono_mixdown(
-            signal_mono.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
-            signal.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
-            int(num_samples),
-            int(num_channels),
-        )
-        return signal_mono
+        return np.atleast_2d(np.mean(signal, axis=0))
 
     if always_copy:
         return signal.copy()
@@ -207,6 +193,10 @@ def resample(
 
     """
     signal = _check_signal(signal)
+
+    # We can only handle float32 signals
+    if signal.dtype != np.float32:
+        signal = signal.astype(np.float32)
 
     if original_rate == target_rate or signal.size == 0:
         if always_copy:
