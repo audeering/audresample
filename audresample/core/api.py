@@ -175,7 +175,7 @@ def resample(
 ) -> np.ndarray:
     r"""Resample signal to a new sampling rate.
 
-    Supports only single precision signals (e.g. datatype float32).
+    Supports only signals in single precision floating point format.
     The returned signal is always of shape (``channels``, ``samples``).
 
     Args:
