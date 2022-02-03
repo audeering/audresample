@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                v1.0.0
+                v1.1.0
               </div>
             
           
@@ -252,8 +252,7 @@ you can select an <code class="docutils literal notranslate"><span class="pre">u
 to fill in the missing channels.
 The workflow of <a class="reference internal" href="#audresample.remix" title="audresample.remix"><code class="xref py py-func docutils literal notranslate"><span class="pre">audresample.remix()</span></code></a> is always
 upmix -&gt; channel selection -&gt; downmix.</p>
-<p>The returned signal always is of type <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>
-with shape (<code class="docutils literal notranslate"><span class="pre">channels</span></code>, <code class="docutils literal notranslate"><span class="pre">samples</span></code>).</p>
+<p>The returned signal always of shape (<code class="docutils literal notranslate"><span class="pre">channels</span></code>, <code class="docutils literal notranslate"><span class="pre">samples</span></code>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -288,8 +287,8 @@ if <code class="docutils literal notranslate"><span class="pre">'repeat'</span><
 <dt class="sig sig-object py" id="audresample.resample">
 <span class="sig-prename descclassname"><span class="pre">audresample.</span></span><span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_rate</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'h'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/audresample/core/api.html#resample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#audresample.resample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resample signal to a new sampling rate.</p>
-<p>The returned signal is always of type <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>
-with shape (<code class="docutils literal notranslate"><span class="pre">channels</span></code>, <code class="docutils literal notranslate"><span class="pre">samples</span></code>).</p>
+<p>Supports only signals in single precision floating point format.
+The returned signal is always of shape (<code class="docutils literal notranslate"><span class="pre">channels</span></code>, <code class="docutils literal notranslate"><span class="pre">samples</span></code>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -307,7 +306,10 @@ with shape (<code class="docutils literal notranslate"><span class="pre">channel
 <dd class="field-odd"><p>resampled signal with shape <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">channels,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">samples)</span></code></p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – if input signal has more than two dimensions</p>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – if input signal has more than two dimensions</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><strong>RuntimeError</strong></a> – if input type is not <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.single" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.single</span></code></a></p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -338,7 +340,7 @@ with shape (<code class="docutils literal notranslate"><span class="pre">channel
         
         
         
-          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2022/01/04 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2022/02/03 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
