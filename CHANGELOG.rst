@@ -7,6 +7,16 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.1.0 (2022-02-03)
+--------------------------
+
+* Added: support for non single precision floating-point formats
+  in ``audresample.remix()``
+* Changed: raise a ``RuntimeError`` in ``audresample.resample()``
+  when a non single precision floating-point input signal is given
+  instead of converting it silently
+
+
 Version 1.0.0 (2022-01-04)
 --------------------------
 
