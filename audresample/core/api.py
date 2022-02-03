@@ -175,8 +175,8 @@ def resample(
 ) -> np.ndarray:
     r"""Resample signal to a new sampling rate.
 
-    The returned signal is always of type ``np.float32``
-    with shape (``channels``, ``samples``).
+    Supports only signals in single precision floating point format.
+    The returned signal is always of shape (``channels``, ``samples``).
 
     Args:
         signal: array with signal values
@@ -190,13 +190,17 @@ def resample(
 
     Raises:
         RuntimeError: if input signal has more than two dimensions
+        RuntimeError: if input type is not :class:`numpy.single`
 
     """
     signal = _check_signal(signal)
 
     # We can only handle float32 signals
     if signal.dtype != np.float32:
-        signal = signal.astype(np.float32)
+        raise RuntimeError(
+            'Input signal must be of type float32/single, '
+            f'got {signal.dtype}.'
+        )
 
     if original_rate == target_rate or signal.size == 0:
         if always_copy:

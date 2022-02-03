@@ -22,9 +22,6 @@ resampled_wavs = glob('tests/test-assets/resampled__*.wav')
         ),
         # original_rate == target_rate without copy
         (
-            np.zeros((16000,)), 16000, 16000, False,
-        ),
-        (
             np.zeros((16000,), dtype=np.float32), 16000, 16000, False,
         ),
         (
@@ -35,9 +32,6 @@ resampled_wavs = glob('tests/test-assets/resampled__*.wav')
         ),
         # original_rate == target_rate with copy
         (
-            np.zeros((16000,)), 16000, 16000, True,
-        ),
-        (
             np.zeros((16000,), dtype=np.float32), 16000, 16000, True,
         ),
         (
@@ -47,9 +41,6 @@ resampled_wavs = glob('tests/test-assets/resampled__*.wav')
             np.zeros((16000, 3), dtype=np.float32), 16000, 16000, True,
         ),
         # original_rate != target_rate
-        (
-            np.zeros((16000,)), 16000, 8000, False,
-        ),
         (
             np.zeros((16000,), dtype=np.float32), 16000, 8000, False,
         ),
@@ -66,7 +57,16 @@ resampled_wavs = glob('tests/test-assets/resampled__*.wav')
         pytest.param(
             np.zeros((16000, 2, 3)), 16000, 16000, False,
             marks=pytest.mark.xfail(raises=RuntimeError),
-        )
+        ),
+        # wrong input datatype
+        pytest.param(
+            np.zeros((16000,), dtype=np.float64), 16000, 16000, False,
+            marks=pytest.mark.xfail(raises=RuntimeError),
+        ),
+        pytest.param(
+            np.zeros((16000,), dtype=int), 16000, 16000, False,
+            marks=pytest.mark.xfail(raises=RuntimeError),
+        ),
     ]
 )
 def test_resample_signal(signal, original_rate, target_rate, always_copy):
