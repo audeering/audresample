@@ -1,3 +1,4 @@
+audeer >=1.18.0
 jupyter-sphinx
 matplotlib
 sphinx
