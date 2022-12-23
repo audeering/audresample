@@ -7,6 +7,17 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.1.1 (2022-12-23)
+--------------------------
+
+* Added: support for Python 3.11
+* Added: support for Python 3.10
+* Changed: split API documentation into sub-pages
+  for each function
+* Fixed: missing ``__init__.py`` file for
+  ``audresample.define``
+
+
 Version 1.1.0 (2022-02-03)
 --------------------------
 
