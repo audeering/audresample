@@ -1,0 +1,6 @@
+﻿remix\(\)
+=========
+
+.. currentmodule:: audresample
+
+.. autofunction:: audresample.remix

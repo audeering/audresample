@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Usage &mdash; audresample Documentation</title>
+  <title>Usage &mdash; Documentation</title>
   
 
   
@@ -25,12 +25,8 @@
     
 
   
-
-  
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/audeering.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/audeering.css" type="text/css" />
   <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
@@ -38,7 +34,7 @@
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="audresample" href="api.html" />
+    <link rel="next" title="audresample" href="api/audresample.html" />
     <link rel="prev" title="Installation" href="install.html" />
     
   
@@ -72,7 +68,7 @@
             
             
               <div class="version">
-                v1.1.0
+                v1.1.1
               </div>
             
           
@@ -107,8 +103,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api.html">audresample</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api-define.html">audresample.define</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/audresample.html">audresample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/audresample.define.html">audresample.define</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
@@ -152,19 +148,19 @@
            <div itemprop="articleBody">
             
   <div class="section" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h1>
 <div class="jupyter_cell docutils container">
 <div class="cell_output docutils container">
 </div>
 </div>
 <div class="section" id="remix-signal">
-<h2>Remix signal<a class="headerlink" href="#remix-signal" title="Permalink to this headline">¶</a></h2>
+<h2>Remix signal<a class="headerlink" href="#remix-signal" title="Permalink to this heading">¶</a></h2>
 <p>Create AM/FM signal with three channels
 and a sampling rate of 16kHz
-using <a class="reference internal" href="api.html#audresample.am_fm_synth" title="audresample.am_fm_synth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.am_fm_synth()</span></code></a>.</p>
+using <a class="reference internal" href="api/audresample.am_fm_synth.html#audresample.am_fm_synth" title="audresample.am_fm_synth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.am_fm_synth()</span></code></a>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">audresample</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">audresample</span>
 
 <span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">16000</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">16500</span>
@@ -192,7 +188,7 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
 <p>Mixdown signal to mono.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
     <span class="n">signal</span><span class="p">,</span>
     <span class="n">mixdown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
@@ -214,7 +210,7 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
 <p>Select the last channel.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
     <span class="n">signal</span><span class="p">,</span>
     <span class="n">channels</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span>
@@ -236,7 +232,7 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
 <p>Select the second and first channel.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
     <span class="n">signal</span><span class="p">,</span>
     <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
 <span class="p">)</span>
@@ -258,7 +254,7 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
 <p>Mixdown first and second channel to mono.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
     <span class="n">signal</span><span class="p">,</span>
     <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
     <span class="n">mixdown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -280,13 +276,13 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
 </div>
 </div>
 <div class="section" id="resample-signal">
-<h2>Resample signal<a class="headerlink" href="#resample-signal" title="Permalink to this headline">¶</a></h2>
+<h2>Resample signal<a class="headerlink" href="#resample-signal" title="Permalink to this heading">¶</a></h2>
 <p>Create AM/FM signal with two channels
 and a sampling rate of 48kHz
-using <a class="reference internal" href="api.html#audresample.am_fm_synth" title="audresample.am_fm_synth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.am_fm_synth()</span></code></a>.</p>
+using <a class="reference internal" href="api/audresample.am_fm_synth.html#audresample.am_fm_synth" title="audresample.am_fm_synth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.am_fm_synth()</span></code></a>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">audresample</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">audresample</span>
 
 <span class="n">original_rate</span> <span class="o">=</span> <span class="mi">48000</span>
 <span class="n">num_original</span> <span class="o">=</span> <span class="mi">16000</span>
@@ -312,10 +308,10 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
 </div>
 </div>
 <p>Resample signal to 8kHz using
-<a class="reference internal" href="api.html#audresample.resample" title="audresample.resample"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.resample()</span></code></a>.</p>
+<a class="reference internal" href="api/audresample.resample.html#audresample.resample" title="audresample.resample"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.resample()</span></code></a>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_rate</span> <span class="o">=</span> <span class="mi">8000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_rate</span> <span class="o">=</span> <span class="mi">8000</span>
 <span class="n">resampled</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
     <span class="n">signal</span><span class="p">,</span>
     <span class="n">original_rate</span><span class="p">,</span>
@@ -347,7 +343,7 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="api.html" class="btn btn-neutral float-right" title="audresample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api/audresample.html" class="btn btn-neutral float-right" title="audresample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -362,7 +358,7 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
         
         
         
-          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2022/02/03 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2022/12/23 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
@@ -397,12 +393,14 @@ using <a class="reference internal" href="api.html#audresample.am_fm_synth" titl
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script src="_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
 
   

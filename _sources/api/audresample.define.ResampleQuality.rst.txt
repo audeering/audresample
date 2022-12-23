@@ -1,0 +1,28 @@
+﻿ResampleQuality
+===============
+
+.. currentmodule:: audresample.define
+
+.. autoclass:: ResampleQuality
+
+
+HIGH
+----
+.. autoattribute:: ResampleQuality.HIGH
+    
+LOW
+---
+.. autoattribute:: ResampleQuality.LOW
+    
+MEDIUM
+------
+.. autoattribute:: ResampleQuality.MEDIUM
+    
+QUICK
+-----
+.. autoattribute:: ResampleQuality.QUICK
+    
+VERY\_HIGH
+----------
+.. autoattribute:: ResampleQuality.VERY_HIGH
+    

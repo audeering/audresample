@@ -16,8 +16,8 @@
     :caption: API Documentation
     :hidden:
 
-    api
-    api-define
+    api/audresample
+    api/audresample.define
     genindex
 
 .. toctree::

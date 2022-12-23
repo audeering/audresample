@@ -1,0 +1,6 @@
+﻿am\_fm\_synth\(\)
+=================
+
+.. currentmodule:: audresample
+
+.. autofunction:: audresample.am_fm_synth

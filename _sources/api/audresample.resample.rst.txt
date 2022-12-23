@@ -1,0 +1,6 @@
+﻿resample\(\)
+============
+
+.. currentmodule:: audresample
+
+.. autofunction:: audresample.resample

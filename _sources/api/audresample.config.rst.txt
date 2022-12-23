@@ -1,0 +1,12 @@
+﻿config
+======
+
+.. currentmodule:: audresample
+
+.. autoclass:: config
+
+
+DEFAULT\_RESAMPLE\_QUALITY
+--------------------------
+.. autoattribute:: config.DEFAULT_RESAMPLE_QUALITY
+    
