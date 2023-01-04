@@ -1,9 +1,6 @@
 import ctypes
-from glob import glob
-from os import path
 
 import pytest
-import audiofile as af
 import numpy as np
 
 import audresample
