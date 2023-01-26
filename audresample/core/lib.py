@@ -16,18 +16,16 @@ if platform.system() == 'Windows':  # pragma: no cover
 elif platform.system() == 'Linux':  # pragma: no cover
     lib_path = os.path.join(bin_path, 'linux', 'libaudresample.so')
 elif (
-        # pragma: no cover
         # MacOS Intel
         platform.system() == 'Darwin'
         and platform.processor() == 'i386'
-):
+):  # pragma: no cover
     lib_path = os.path.join(bin_path, 'macos-intel', 'libaudresample.dylib')
 elif (
-        # pragma: no cover
         # MacOS M1
         platform.system() == 'Darwin'
         and platform.processor() == 'arm'
-):
+):  # pragma: no cover
     lib_path = os.path.join(bin_path, 'macos-m1', 'libaudresample.dylib')
 else:  # pragma: no cover
     raise RuntimeError("Unsupported platform")
