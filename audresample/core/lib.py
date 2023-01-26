@@ -9,9 +9,6 @@ root = os.path.dirname(os.path.realpath(__file__))
 
 bin_path = os.path.join(root, 'bin')
 if platform.system() == 'Windows':  # pragma: no cover
-    # for some reason we have to load soxr.dll first...
-    lib_path = os.path.join(bin_path, 'windows', 'soxr.dll')
-    ctypes.cdll.LoadLibrary(lib_path)
     lib_path = os.path.join(bin_path, 'windows', 'audresample.dll')
 elif platform.system() == 'Linux':  # pragma: no cover
     lib_path = os.path.join(bin_path, 'linux', 'libaudresample.so')
