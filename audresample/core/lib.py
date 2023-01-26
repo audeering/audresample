@@ -10,13 +10,25 @@ root = os.path.dirname(os.path.realpath(__file__))
 bin_path = os.path.join(root, 'bin')
 if platform.system() == 'Windows':  # pragma: no cover
     # for some reason we have to load soxr.dll first...
-    lib_path = os.path.join(bin_path, 'soxr.dll')
+    lib_path = os.path.join(bin_path, 'windows', 'soxr.dll')
     ctypes.cdll.LoadLibrary(lib_path)
-    lib_path = os.path.join(bin_path, 'audresample.dll')
+    lib_path = os.path.join(bin_path, 'windows', 'audresample.dll')
 elif platform.system() == 'Linux':  # pragma: no cover
-    lib_path = os.path.join(bin_path, 'libaudresample.so')
-elif platform.system() == 'Darwin':  # pragma: no cover
-    lib_path = os.path.join(bin_path, 'libaudresample.dylib')
+    lib_path = os.path.join(bin_path, 'linux', 'libaudresample.so')
+elif (
+        # pragma: no cover
+        # MacOS Intel
+        platform.system() == 'Darwin'
+        and platform.processor() == 'i386'
+):
+    lib_path = os.path.join(bin_path, 'macos-intel', 'libaudresample.dylib')
+elif (
+        # pragma: no cover
+        # MacOS M1
+        platform.system() == 'Darwin'
+        and platform.processor() == 'arm'
+):
+    lib_path = os.path.join(bin_path, 'macos-m1', 'libaudresample.dylib')
 else:  # pragma: no cover
     raise RuntimeError("Unsupported platform")
 lib = ctypes.cdll.LoadLibrary(lib_path)
