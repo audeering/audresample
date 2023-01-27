@@ -7,6 +7,12 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.2.0 (2023-01-27)
+--------------------------
+
+* Added: support for MacOS M1 architecture
+
+
 Version 1.1.1 (2022-12-23)
 --------------------------
 
