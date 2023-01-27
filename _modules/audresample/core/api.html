@@ -25,8 +25,12 @@
     
 
   
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/audeering.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/audeering.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
@@ -55,7 +59,7 @@
 
           <a href="../../../index.html">
           
-            <img src="../../../_static/images/audeering.png" class="logo" alt="audEERING"/>
+            <img src="../../../_static/images/audeering.svg" class="logo" alt="audEERING"/>
           
           
             <span> audresample</span>
@@ -66,7 +70,7 @@
             
             
               <div class="version">
-                v1.1.1
+                v1.2.0
               </div>
             
           
@@ -128,14 +132,40 @@
         
         <div class="rst-content">
         
-          <div role="navigation" aria-label="Page navigation">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
       <li>audresample.core.api</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -155,7 +185,7 @@
 <span class="k">def</span> <span class="nf">_check_signal</span><span class="p">(</span>
         <span class="n">signal</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Ensure float32 and two dimensions.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Ensure float32 and two dimensions.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">signal</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;Input signal must have 1 or 2 dimension, &quot;</span>
@@ -171,7 +201,7 @@
         <span class="o">*</span><span class="p">,</span>
         <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Synthesizes an AM/FM signal.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Synthesizes an AM/FM signal.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        num_samples: number of samples</span>
@@ -214,7 +244,7 @@
         <span class="n">upmix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">always_copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Remix a signal.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Remix a signal.</span>
 
 <span class="sd">    The ``channels`` arguments allows to select one or more</span>
 <span class="sd">    channels and/or re-order them. Examples:</span>
@@ -317,7 +347,7 @@
         <span class="n">quality</span><span class="p">:</span> <span class="n">define</span><span class="o">.</span><span class="n">ResampleQuality</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">DEFAULT_RESAMPLE_QUALITY</span><span class="p">,</span>
         <span class="n">always_copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Resample signal to a new sampling rate.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Resample signal to a new sampling rate.</span>
 
 <span class="sd">    Supports only signals in single precision floating point format.</span>
 <span class="sd">    The returned signal is always of shape (``channels``, ``samples``).</span>
@@ -387,7 +417,7 @@
         
         
         
-          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2022/12/23 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2023/01/27 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
@@ -395,7 +425,7 @@
   <div role="contentinfo">
     <p>
         
-      &copy; 2020-2022 audEERING GmbH
+      &copy; 2020-2023 audEERING GmbH
     </p>
   </div> 
 
@@ -420,9 +450,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
