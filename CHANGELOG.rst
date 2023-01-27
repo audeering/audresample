@@ -7,6 +7,14 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.2.1 (2023-01-27)
+--------------------------
+
+* Fixed: require ``sphinx-audeering-theme>=1.2.1``
+  to ensure the correct theme is used
+  for the public documentation
+
+
 Version 1.2.0 (2023-01-27)
 --------------------------
 
