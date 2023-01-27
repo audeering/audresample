@@ -2,6 +2,6 @@ audeer >=1.18.0
 jupyter-sphinx
 matplotlib
 sphinx
-sphinx-audeering-theme
+sphinx-audeering-theme >=1.2.1
 sphinx-autodoc-typehints
 sphinx-copybutton
