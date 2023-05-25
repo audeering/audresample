@@ -43,6 +43,7 @@ setuptools.setup(
     # python -m build --wheel
     # does no longer accept the --plat-name option,
     # but we can set the desired platform as an option
+    # (https://stackoverflow.com/a/75010995)
     options={
         'bdist_wheel': {'plat_name': plat_name},
     },
