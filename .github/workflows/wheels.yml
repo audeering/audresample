@@ -33,7 +33,7 @@ jobs:
 
     - name: Build source distribution
       run: python -m build --sdist --outdir wheelhouse
-      if: matrix.platform == 'manylinux_x86_64'
+      if: matrix.platform == 'manylinux_2_17_x86_64'
 
     - uses: actions/upload-artifact@v3
       with:
