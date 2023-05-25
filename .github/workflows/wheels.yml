@@ -35,7 +35,7 @@ jobs:
       run: python -m build --sdist --outdir wheelhouse
       if: matrix.platform == 'manylinux_x86_64'
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         path: ./wheelhouse/*
 
@@ -47,7 +47,7 @@ jobs:
     steps:
 
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: artifact
           path: dist
