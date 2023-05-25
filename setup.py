@@ -7,7 +7,7 @@ import setuptools
 # For sources see https://github.com/audeering/audresamplelib
 
 binaries = {
-    'manylinux_x86_64': 'linux/*.so',
+    'manylinux_2_17_x86_64': 'linux/*.so',
     'win_amd64': 'windows/*.dll',
     'macosx_x86_64': 'macos-intel/*.dylib',
     'macosx_arm64': 'macos-m1/*.dylib',
@@ -28,7 +28,9 @@ def platform_name():
         processor = platform.processor()
 
         if system == 'Linux' and processor == 'x86_64':
-            plat_name = 'manylinux_x86_64'
+            # That we support 2_17 can be seen
+            # when inspecting the wheel with auditwheel
+            plat_name = 'manylinux_2_17_x86_64'
 
         elif system == 'Windows':
             plat_name = 'win_amd64'
