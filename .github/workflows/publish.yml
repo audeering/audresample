@@ -11,7 +11,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     strategy:
       matrix:
-        platform: [ macosx_x86_64, macosx_arm64, manylinux_x86_64, win_amd64 ]
+        platform: [ macosx_x86_64, macosx_arm64, manylinux_2_17_x86_64, win_amd64 ]
 
     steps:
     - uses: actions/checkout@v3
