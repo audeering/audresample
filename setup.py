@@ -6,25 +6,25 @@ import setuptools
 
 # Linux
 if platform.system() == 'Linux':
-    path = 'linux/audresample.so'
+    path = 'linux/*.so'
 
 # Windows
 elif platform.system() == 'Windows':
-    path = 'windows/audresample.dll'
+    path = 'windows/*.dll'
 
 # MacOS Intel
 elif (
         platform.system() == 'Darwin'
         and platform.processor() == 'i386'
 ):
-    path = 'macos-intel/libaudresample.dylib'
+    path = 'macos-intel/*.dylib'
 
 # MacOS M1
 elif (
         platform.system() == 'Darwin'
         and platform.processor() == 'arm'
 ):
-    path = 'macos-m1/libaudresample.dylib'
+    path = 'macos-m1/*.dylib'
 
 else:
     raise RuntimeError('Unsupported platform')
@@ -32,6 +32,6 @@ else:
 
 setuptools.setup(
     use_scm_version=True,
-    packages=setuptools.find_packages(include=['audresample']),
-    package_data={'audresample': [f'audresample/core/bin/{path}']},
+    packages=setuptools.find_packages(),
+    package_data={'audresample.core': [f'bin/{path}']},
 )
