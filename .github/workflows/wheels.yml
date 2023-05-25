@@ -25,6 +25,9 @@ jobs:
       with:
         python-version: "3.8"
 
+    - name: Install build dependencies
+      run: pip install setuptools wheel
+
     - name: Build wheels
       run: python setup.py bdist_wheel --plat-name=${{ matrix.build }}
 
