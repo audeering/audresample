@@ -9,8 +9,8 @@ import setuptools
 binaries = {
     'manylinux_2_17_x86_64': 'linux/*.so',
     'win_amd64': 'windows/*.dll',
-    'macosx_x86_64': 'macos-intel/*.dylib',
-    'macosx_arm64': 'macos-m1/*.dylib',
+    'macosx_12_0_x86_64': 'macos-intel/*.dylib',
+    'macosx_12_0_arm64': 'macos-m1/*.dylib',
 }
 
 
@@ -36,10 +36,10 @@ def platform_name():
             plat_name = 'win_amd64'
 
         elif system == 'Darwin' and processor == 'i386':
-            plat_name = 'macosx_x86_64'
+            plat_name = 'macosx_12_0_x86_64'
 
         elif system == 'Darwin' and processor == 'arm':
-            plat_name = 'macosx_arm64'
+            plat_name = 'macosx_12_0_arm64'
 
         else:
             raise RuntimeError(
