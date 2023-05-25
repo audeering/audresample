@@ -1,4 +1,3 @@
-import os
 import platform
 import setuptools
 
@@ -22,24 +21,26 @@ def platform_name():
     plat_name = os.environ.get('PLAT_NAME', None)
 
     if plat_name is None:
-
         # Extract platform name from system + processor
-        systems = {
-            'Linux': 'manylinux',
-            'Windows': 'win',
-            'Darwin': 'macos',
-        }
-        processors = {
-            'i386': 'x86_64',
-            'arm': 'arm64',
-        }
         system = platform.system()
-        if system not in systems:
-            raise RuntimeError(f"Unsupported system '{system}'")
         processor = platform.processor()
-        if processor not in processors:
-            raise RuntimeError(f"Unsupported processor '{processor}'")
-        plat_name = f'{system}_{processor}'
+
+        if system == 'Linux' and processor == 'x86_64':
+            plat_name = 'manylinux_x86_64'
+
+        elif system == 'Windows':
+            plat_name = 'win_amd64'
+
+        elif system == 'Darwin' and processor == 'i386':
+            plat_name = 'macosx_x86_64'
+
+        elif system == 'Darwin' and processor == 'arm':
+            plat_name = 'macosx_arm64'
+
+        else:
+            raise RuntimeError(
+                f'Unsupported platform {system}-{processor}'
+            )
 
     return plat_name
 

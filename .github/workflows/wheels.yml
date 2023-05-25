@@ -10,10 +10,10 @@ jobs:
 
   build:
 
-    runs-on: ${{ matrix.os }}
+    runs-on: 'ubuntu-latest'
     strategy:
       matrix:
-        os: [ macos-latest, ubuntu-latest, windows-latest ]
+        platform: [ macosx_x86_64, macosx_arm64, manylinux_x86_64, win_amd64 ]
 
     steps:
     - uses: actions/checkout@v3
@@ -26,6 +26,9 @@ jobs:
     - name: Install build dependencies
       run: pip install build
 
+    - name: Set platform name to ${{ matrix.platform }}
+      run: export PLAT_NAME=${{ matrix.platform }}
+
     - name: Build wheels
       run: python -m build --wheel --outdir wheelhouse
 
@@ -36,7 +39,7 @@ jobs:
   show:
 
     needs: [build]
-    runs-on: 'ubuntu-20.04'
+    runs-on: 'ubuntu-latest'
 
     steps:
 
