@@ -24,7 +24,7 @@ jobs:
         python-version: "3.8"
 
     - name: Install build dependencies
-      run: pip install build
+      run: pip install build setuptools_scm
 
     - name: Build wheels
       run: python -m build --wheel --outdir wheelhouse
