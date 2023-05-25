@@ -7,15 +7,14 @@ on:
     branches: [ main ]
 
 jobs:
+
   build:
 
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         include:
-        - { os: macos-12, build: macosx_x86_64 }
-        - { os: windows-latest, build: win_amd64 }
-        - { os: 'ubuntu-20.04', build: manylinux_x86_64 }
+          os: [ macos-latest, ubuntu-latest, windows-latest ]
 
     steps:
     - uses: actions/checkout@v3
@@ -29,7 +28,24 @@ jobs:
       run: pip install build
 
     - name: Build wheels
-      run: python -m build --wheel
+      run: python -m build --wheel --outdir wheelhouse
 
-    - name: Show build
-      run: ls ./dist
+    - uses: actions/upload-artifact@v2
+      with:
+        path: ./wheelhouse/*.whl
+
+  show:
+
+    needs: [build]
+    runs-on: 'ubuntu-20.04'
+
+    steps:
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact
+          path: dist
+
+      - name: Show wheels
+        run: ls ./dist
