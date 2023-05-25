@@ -7,10 +7,12 @@ import setuptools
 # Linux
 if platform.system() == 'Linux':
     path = 'linux/*.so'
+    plat_name = 'manylinux_x86_64'
 
 # Windows
 elif platform.system() == 'Windows':
     path = 'windows/*.dll'
+    plat_name = 'win_amd64'
 
 # MacOS Intel
 elif (
@@ -18,6 +20,7 @@ elif (
         and platform.processor() == 'i386'
 ):
     path = 'macos-intel/*.dylib'
+    plat_name = 'macosx_x86_64'
 
 # MacOS M1
 elif (
@@ -25,6 +28,7 @@ elif (
         and platform.processor() == 'arm'
 ):
     path = 'macos-m1/*.dylib'
+    plat_name = 'macosx_arm64'
 
 else:
     raise RuntimeError('Unsupported platform')
@@ -33,5 +37,13 @@ else:
 setuptools.setup(
     use_scm_version=True,
     packages=setuptools.find_packages(),
-    package_data={'audresample.core': [f'bin/{path}']},
+    package_data={
+        'audresample.core': [f'bin/{path}']
+    },
+    # python -m build --wheel
+    # does no longer accept the --plat-name option,
+    # but we can set the desired platform as an option
+    options={
+        'bdist_wheel': {'plat_name': plat_name},
+    },
 )
