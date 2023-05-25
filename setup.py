@@ -1,5 +1,7 @@
+import os
 import platform
 import setuptools
+
 
 # Include only the platform specific pre-compiled binary.
 # For sources see https://github.com/audeering/audresamplelib
