@@ -37,7 +37,7 @@ def platform_name():
         'Darwin': 'macosx_12_0',
     }
 
-    if system not in system_mapping:
+    if system not in system_mapping:  # pragma: no cover
         raise RuntimeError(f'Unsupported platform {system}')
 
     return f'{system_mapping[system]}_{machine}'
