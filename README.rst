@@ -6,8 +6,13 @@ audresample
 
 Small library to remix or resample your signals.
 
+Have a look at the installation_ and usage_ instructions.
+
 .. code-block:: python
 
+    >>> import numpy as np
+    >>> import audresample
+    >>> signal = np.zeros((2, 8000), dtype='float32')
     >>> signal.shape
     (2, 8000)
     >>> audresample.remix(signal, mixdown=True).shape
@@ -22,12 +27,10 @@ signals in single precision floating-point format,
 and based on the `soxr`_ implementation
 as provided by `audresamplelib`_,
 
-Have a look at the installation_ and usage_ instructions.
-
-.. _soxr: https://sourceforge.net/projects/soxr/
-.. _audresamplelib: https://github.com/audeering/audresamplelib
 .. _installation: https://audeering.github.io/audresample/install.html
 .. _usage: https://audeering.github.io/audresample/usage.html
+.. _soxr: https://sourceforge.net/projects/soxr/
+.. _audresamplelib: https://github.com/audeering/audresamplelib
 
 
 .. badges images and links:
