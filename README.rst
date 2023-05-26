@@ -4,14 +4,27 @@ audresample
 
 |tests| |coverage| |docs| |python-versions| |license|
 
-Python wrapper for `audresamplelib`_
-that provides functions to
-resample and remix audio signals.
+Small library to remix or resample your signals.
+
+.. code-block:: python
+
+    >>> signal.shape
+    (2, 8000)
+    >>> audresample.remix(signal, mixdown=True).shape
+    (2, 8000)
+    >>> audresample.remix(signal, channels=[0, 0, 1, 1]).shape
+    (4, 8000)
+    >>> audresample.resample(signal, 8000, 16000).shape
+    (2, 16000)
+
 Resampling is only supported for
-signals in single precision floating-point format.
+signals in single precision floating-point format,
+and based on the `soxr`_ implementation
+as provided by `audresamplelib`_,
 
 Have a look at the installation_ and usage_ instructions.
 
+.. _soxr: https://sourceforge.net/projects/soxr/
 .. _audresamplelib: https://github.com/audeering/audresamplelib
 .. _installation: https://audeering.github.io/audresample/install.html
 .. _usage: https://audeering.github.io/audresample/usage.html
