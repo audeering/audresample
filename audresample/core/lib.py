@@ -5,35 +5,28 @@ import platform
 
 def platform_name():
 
-    # Look for enrionment variable
-    # to be able to enforce
-    # different platform names
-    # in CI on the same runner
-    plat_name = os.environ.get('PLAT_NAME', None)
+    # Extract platform name from system + processor
+    system = platform.system()
+    processor = platform.processor()
 
-    if plat_name is None:
-        # Extract platform name from system + processor
-        system = platform.system()
-        processor = platform.processor()
+    if system == 'Linux' and processor == 'x86_64':
+        # That we support 2_17 can be seen
+        # when inspecting the wheel with auditwheel
+        plat_name = 'manylinux_2_17_x86_64'
 
-        if system == 'Linux' and processor == 'x86_64':
-            # That we support 2_17 can be seen
-            # when inspecting the wheel with auditwheel
-            plat_name = 'manylinux_2_17_x86_64'
+    elif system == 'Windows':
+        plat_name = 'win_amd64'
 
-        elif system == 'Windows':
-            plat_name = 'win_amd64'
+    elif system == 'Darwin' and processor == 'i386':
+        plat_name = 'macosx_12_0_x86_64'
 
-        elif system == 'Darwin' and processor == 'i386':
-            plat_name = 'macosx_12_0_x86_64'
+    elif system == 'Darwin' and processor == 'arm':
+        plat_name = 'macosx_12_0_arm64'
 
-        elif system == 'Darwin' and processor == 'arm':
-            plat_name = 'macosx_12_0_arm64'
-
-        else:
-            raise RuntimeError(
-                f'Unsupported platform {system}-{processor}'
-            )
+    else:
+        raise RuntimeError(
+            f'Unsupported platform {system}-{processor}'
+        )
 
     return plat_name
 

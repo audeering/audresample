@@ -11,7 +11,11 @@ binaries = {
     'macosx_12_0_x86_64': 'macos-intel/*.dylib',
     'macosx_12_0_arm64': 'macos-m1/*.dylib',
 }
-plat_name = platform_name()
+# Look for enrionment variable PLAT_NAME
+# to be able to enforce
+# different platform names
+# in CI on the same runner
+plat_name = os.environ.get('PLAT_NAME', platform_name())
 
 setuptools.setup(
     use_scm_version=True,
