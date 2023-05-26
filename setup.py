@@ -1,27 +1,71 @@
-import setuptools
+import os
+import platform
 
-from audresample.core.lib import platform_name
+import setuptools
 
 
 # Include only the platform specific pre-compiled binary.
 # For sources see https://github.com/audeering/audresamplelib
-binaries = {
-    'manylinux_2_17_x86_64': 'linux/*.so',
-    'win_amd64': 'windows/*.dll',
-    'macosx_12_0_x86_64': 'macos-intel/*.dylib',
-    'macosx_12_0_arm64': 'macos-m1/*.dylib',
-}
+
+
+def platform_name():
+    r"""Platform name used in pip tag.
+
+    Expected outcomes are:
+
+    ==================== ======================
+    Linux, 64-bit        manylinux_2_17_x86_64
+    Raspberry Pi, 32-bit manylinux_2_17_armv7l
+    Raspberry Pi, 64-bit manylinux_2_17_aarch64
+    Windows              win_amd64
+    MacOS Intel          macosx_12_0_x86_64
+    MacOS M1             macosx_12_0_arm64
+    ==================== ======================
+
+    Under Linux the manylinux version
+    can be extracted
+    by inspecting the wheel
+    with ``auditwheel``.
+
+    Too see all supported tags on your system run:
+
+    .. code-block:: bash
+
+        $ pip debug --verbose
+
+    """
+    system = platform.system()
+    machine = platform.machine().lower()
+    system_mapping = {
+        'Linux': 'manylinux_2_17',
+        'Windows': 'win',
+        'Darwin': 'macosx_12_0',
+    }
+
+    if system not in system_mapping:
+        raise RuntimeError(f'Unsupported platform {system}')
+
+    return f'{system_mapping[system]}_{machine}'
+
+
 # Look for enrionment variable PLAT_NAME
 # to be able to enforce
 # different platform names
 # in CI on the same runner
 plat_name = os.environ.get('PLAT_NAME', platform_name())
 
+if 'linux' in plat_name:
+    library = '*.so'
+elif 'macos' in plat_name:
+    library = '*.dylib'
+elif 'win' in plat_name:
+    library = '*.dll'
+
 setuptools.setup(
     use_scm_version=True,
     packages=setuptools.find_packages(),
     package_data={
-        'audresample.core': [f'bin/{binaries[plat_name]}']
+        'audresample.core': [f'bin/{plat_name}/{library}']
     },
     # python -m build --wheel
     # does no longer accept the --plat-name option,
