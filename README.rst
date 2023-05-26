@@ -4,7 +4,7 @@ audresample
 
 |tests| |coverage| |docs| |python-versions| |license|
 
-Small library to remix or resample your signals.
+**audresample** remixes or resamples your signals.
 
 Have a look at the installation_ and usage_ instructions.
 
