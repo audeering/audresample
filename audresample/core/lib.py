@@ -4,53 +4,60 @@ import platform
 
 
 def platform_name():
+    r"""Platform name used in pip tag.
 
-    # Extract platform name from system + processor
+    Expected outcomes are:
+
+    ==================== ======================
+    Linux, 64-bit        manylinux_2_17_x86_64
+    Raspberry Pi, 32-bit manylinux_2_17_armv7l
+    Raspberry Pi, 64-bit manylinux_2_17_aarch64
+    Windows              win_amd64
+    MacOS Intel          macosx_12_0_x86_64
+    MacOS M1             macosx_12_0_arm64
+    ==================== ======================
+
+    Under Linux the manylinux version
+    can be extracted
+    by inspecting the wheel
+    with ``auditwheel``.
+
+    Too see all supported tags on your system run:
+
+    .. code-block:: bash
+
+        $ pip debug --verbose
+
+    """
     system = platform.system()
-    processor = platform.processor()
+    machine = platform.machine().lower()
+    system_mapping = {
+        'Linux': 'manylinux_2_17',
+        'Windows': 'win',
+        'Darwin': 'macosx_12_0',
+    }
 
-    if system == 'Linux' and processor == 'x86_64':
-        # That we support 2_17 can be seen
-        # when inspecting the wheel with auditwheel
-        plat_name = 'manylinux_2_17_x86_64'
+    if system not in system_mapping:
+        raise RuntimeError(f'Unsupported platform {system}')
 
-    elif system == 'Windows':
-        plat_name = 'win_amd64'
-
-    elif system == 'Darwin' and processor == 'i386':
-        plat_name = 'macosx_12_0_x86_64'
-
-    elif system == 'Darwin' and processor == 'arm':
-        plat_name = 'macosx_12_0_arm64'
-
-    else:
-        raise RuntimeError(
-            f'Unsupported platform {system}-{processor}'
-        )
-
-    return plat_name
+    return f'{system_mapping[system]}_{machine}'
 
 
 # load library
 
 root = os.path.dirname(os.path.realpath(__file__))
-plat_name = platform_name()
 bin_path = os.path.join(root, 'bin')
 
-if plat_name == 'win_amd64':  # pragma: no cover
-    lib_path = os.path.join(bin_path, 'windows', 'audresample.dll')
+plat_name = platform_name()
 
-elif plat_name == 'manylinux_2_17_x86_64':  # pragma: no cover
-    lib_path = os.path.join(bin_path, 'linux', 'libaudresample.so')
+if 'linux' in plat_name:  # pragma: no cover
+    library = 'libaudresample.so'
+elif 'macos' in plat_name:  # pragma: no cover
+    library = 'libaudresample.dylib'
+elif 'win' in plat_name:  # pragma: no cover
+    library = 'audresample.dll'
 
-elif plat_name == 'macosx_12_0_x86_64':  # pragma: no cover
-    lib_path = os.path.join(bin_path, 'macos-intel', 'libaudresample.dylib')
-
-elif plat_name == 'macosx_12_0_arm64':  # pragma: no cover
-    lib_path = os.path.join(bin_path, 'macos-m1', 'libaudresample.dylib')
-
-else:  # pragma: no cover
-    raise RuntimeError("Unsupported platform")
+lib_path = os.path.join(bin_path, plat_name, library)
 
 lib = ctypes.cdll.LoadLibrary(lib_path)
 
