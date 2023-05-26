@@ -6,6 +6,11 @@ audresample
 
 **audresample** remixes or resamples your signals.
 
+Resampling is supported
+for signals in single precision floating-point format,
+and based on the `soxr`_ implementation
+as provided by `audresamplelib`_.
+
 Have a look at the installation_ and usage_ instructions.
 
 .. code-block:: python
@@ -16,21 +21,16 @@ Have a look at the installation_ and usage_ instructions.
     >>> signal.shape
     (2, 8000)
     >>> audresample.remix(signal, mixdown=True).shape
-    (2, 8000)
+    (1, 8000)
     >>> audresample.remix(signal, channels=[0, 0, 1, 1]).shape
     (4, 8000)
     >>> audresample.resample(signal, 8000, 16000).shape
     (2, 16000)
 
-Resampling is only supported for
-signals in single precision floating-point format,
-and based on the `soxr`_ implementation
-as provided by `audresamplelib`_,
-
-.. _installation: https://audeering.github.io/audresample/install.html
-.. _usage: https://audeering.github.io/audresample/usage.html
 .. _soxr: https://sourceforge.net/projects/soxr/
 .. _audresamplelib: https://github.com/audeering/audresamplelib
+.. _installation: https://audeering.github.io/audresample/install.html
+.. _usage: https://audeering.github.io/audresample/usage.html
 
 
 .. badges images and links:
