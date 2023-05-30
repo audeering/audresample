@@ -7,6 +7,16 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.3.1 (2023-05-30)
+--------------------------
+
+* Fixed: documentation building in deploy step
+  of ``publish`` Action on Github
+* Changed: switch versions of MacOS wheel to
+  ``macosx_11_0_arm64``,
+  ``macosx_10_4_x86_64``
+
+
 Version 1.3.0 (2023-05-30)
 --------------------------
 
