@@ -7,6 +7,14 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.3.2 (2023-05-30)
+--------------------------
+
+* Fixed: wrong version
+  in deployed MacOS wheels
+  in the ``publish`` Action on Github
+
+
 Version 1.3.1 (2023-05-30)
 --------------------------
 
