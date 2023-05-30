@@ -61,6 +61,9 @@ jobs:
         name: artifact
         path: dist
 
+    steps:
+    - uses: actions/checkout@v3
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -78,7 +81,7 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: python -m twine upload dist/*
 
-    # Docuemntation
+    # Documentation
     - name: Install doc dependencies
       run: |
         pip install -r requirements.txt
