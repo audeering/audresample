@@ -7,6 +7,26 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.3.0 (2023-05-30)
+--------------------------
+
+* Added: support for Raspberry Pi
+  64-bit (aarch64)
+  and 32-bit (armv7l)
+* Added: code example to README
+  that highlights the functionality
+  of the package
+* Changed: replace universal wheel
+  of Python package
+  by dedicated platform wheels for
+  ``macosx_12_0_arm64``,
+  ``macosx_12_0_x86_64``,
+  ``manylinux_2_17_aarch64``,
+  ``manylinux_2_17_armv7l``,
+  ``manylinux_2_17_x86_64``,
+  ``win_amd64``
+
+
 Version 1.2.1 (2023-01-27)
 --------------------------
 
