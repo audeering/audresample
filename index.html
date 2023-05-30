@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                v1.2.1
+                v1.3.1
               </div>
             
           
@@ -145,12 +145,25 @@
   <div class="section" id="audresample">
 <h1>audresample<a class="headerlink" href="#audresample" title="Permalink to this heading">¶</a></h1>
 <p><a class="reference external" href="https://github.com/audeering/audresample/actions?query=workflow%3ATest"><img alt="Test status" src="https://github.com/audeering/audresample/workflows/Test/badge.svg" /></a> <a class="reference external" href="https://codecov.io/gh/audeering/audresample/"><img alt="code coverage" src="https://codecov.io/gh/audeering/audresample/branch/master/graph/badge.svg?token=NPQDJ5T7HI" /></a> <a class="reference external" href="https://audeering.github.io/audresample/"><img alt="audresample's documentation" src="https://img.shields.io/pypi/v/audresample?label=docs" /></a> <a class="reference external" href="https://pypi.org/project/audresample/"><img alt="audresamples's supported Python versions" src="https://img.shields.io/pypi/pyversions/audresample.svg" /></a> <a class="reference external" href="https://github.com/audeering/audfactory/blob/master/LICENSE"><img alt="audfactory's MIT license" src="https://img.shields.io/badge/license-MIT-green.svg" /></a></p>
-<p>Python wrapper for <a class="reference external" href="https://github.com/audeering/audresamplelib">audresamplelib</a>
-that provides functions to
-resample and remix audio signals.
-Resampling is only supported for
-signals in single precision floating-point format.</p>
+<p><strong>audresample</strong> remixes or resamples your signals.</p>
+<p>Resampling is supported
+for signals in single precision floating-point format,
+and based on the <a class="reference external" href="https://sourceforge.net/projects/soxr/">soxr</a> implementation
+as provided by <a class="reference external" href="https://github.com/audeering/audresamplelib">audresamplelib</a>.</p>
 <p>Have a look at the <a class="reference external" href="https://audeering.github.io/audresample/install.html">installation</a> and <a class="reference external" href="https://audeering.github.io/audresample/usage.html">usage</a> instructions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">audresample</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8000</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signal</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2, 8000)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">mixdown</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(1, 8000)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(4, 8000)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">audresample</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2, 16000)</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -180,7 +193,7 @@ signals in single precision floating-point format.</p>
         
         
         
-          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2023/01/27 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2023/05/30 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
