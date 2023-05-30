@@ -7,7 +7,6 @@ import setuptools
 # Include only the platform specific pre-compiled binary.
 # For sources see https://github.com/audeering/audresamplelib
 
-
 def platform_name():
     r"""Platform name used in pip tag.
 
@@ -18,8 +17,8 @@ def platform_name():
     Raspberry Pi, 32-bit manylinux_2_17_armv7l
     Raspberry Pi, 64-bit manylinux_2_17_aarch64
     Windows              win_amd64
-    MacOS Intel          macosx_12_0_x86_64
-    MacOS M1             macosx_12_0_arm64
+    MacOS Intel          macosx_10_4_x86_64
+    MacOS M1             macosx_11_0_arm64
     ==================== ======================
 
     Under Linux the manylinux version
@@ -36,16 +35,20 @@ def platform_name():
     """
     system = platform.system()
     machine = platform.machine().lower()
-    system_mapping = {
-        'Linux': 'manylinux_2_17',
-        'Windows': 'win',
-        'Darwin': 'macosx_12_0',
-    }
 
-    if system not in system_mapping:
+    if system == 'Linux':  # pragma: no cover
+        system = 'manylinux_2_17'
+    elif system == 'Windows':  # pragma: no cover
+        system = 'win'
+    elif system == 'Darwin':  # pragma: no cover
+        if machine == 'x86_64':
+            system = 'macosx_10_4'
+        else:
+            system = 'macosx_11_0'
+    else:  # pragma: no cover
         raise RuntimeError(f'Unsupported platform {system}')
 
-    return f'{system_mapping[system]}_{machine}'
+    return f'{system}_{machine}'
 
 
 # Look for enrionment variable PLAT_NAME
