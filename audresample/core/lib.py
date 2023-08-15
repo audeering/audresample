@@ -68,7 +68,7 @@ lib = ctypes.cdll.LoadLibrary(lib_path)
 
 # resample
 
-class ConverterConfig(ctypes.Structure):
+class ConverterConfig(ctypes.Structure):  # noqa: D101
     _fields_ = [
         ("srIn", ctypes.c_double),
         ("srOut", ctypes.c_double),

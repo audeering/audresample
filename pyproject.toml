@@ -160,6 +160,7 @@ section-order = [
     'audobject',
     'audonnx',
     'audplot',
+    'audsp',
     'audtorch',
     'opensmile',
     'sphinx-audeering-theme',
