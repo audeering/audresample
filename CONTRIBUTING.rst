@@ -10,8 +10,8 @@ or other things
 that need improvement,
 please create an issue_.
 
-.. _issue: https://github.com/audeering/audmath/issues/new/
-.. _pull request: https://github.com/audeering/audmath/compare/
+.. _issue: https://github.com/audeering/audresample/issues/new/
+.. _pull request: https://github.com/audeering/audresample/compare/
 
 
 Development Installation
@@ -20,12 +20,12 @@ Development Installation
 Instead of pip-installing the latest release from PyPI_,
 you should get the newest development version from Github_::
 
-    git clone https://github.com/audeering/audmath/
-    cd audmath
+    git clone https://github.com/audeering/audresample/
+    cd audresample
     # Create virtual environment for this project
     # e.g.
-    # virtualenv --python="python3"  $HOME/.envs/audmath
-    # source $HOME/.envs/audmath/bin/activate
+    # virtualenv --python="python3"  $HOME/.envs/audresample
+    # source $HOME/.envs/audresample/bin/activate
     pip install -r requirements.txt
 
 
@@ -33,8 +33,8 @@ This way,
 your installation always stays up-to-date,
 even if you pull new changes from the Github repository.
 
-.. _PyPI: https://pypi.org/project/audmath/
-.. _Github: https://github.com/audeering/audmath/
+.. _PyPI: https://pypi.org/project/audresample/
+.. _Github: https://github.com/audeering/audresample/
 
 
 Coding Convention
