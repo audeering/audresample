@@ -1,4 +1,5 @@
 audeer >=1.18.0
+ipykernel
 jupyter-sphinx
 matplotlib
 sphinx
