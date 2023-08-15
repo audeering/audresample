@@ -37,15 +37,15 @@ Have a look at the installation_ and usage_ instructions.
 .. |tests| image:: https://github.com/audeering/audresample/workflows/Test/badge.svg
     :target: https://github.com/audeering/audresample/actions?query=workflow%3ATest
     :alt: Test status
-.. |coverage| image:: https://codecov.io/gh/audeering/audresample/branch/master/graph/badge.svg?token=NPQDJ5T7HI
+.. |coverage| image:: https://codecov.io/gh/audeering/audresample/branch/main/graph/badge.svg?token=NPQDJ5T7HI
     :target: https://codecov.io/gh/audeering/audresample/
     :alt: code coverage
 .. |docs| image:: https://img.shields.io/pypi/v/audresample?label=docs
     :target: https://audeering.github.io/audresample/
     :alt: audresample's documentation
 .. |license| image:: https://img.shields.io/badge/license-MIT-green.svg
-    :target: https://github.com/audeering/audfactory/blob/master/LICENSE
-    :alt: audfactory's MIT license
+    :target: https://github.com/audeering/audresample/blob/main/LICENSE
+    :alt: audresample's MIT license
 .. |python-versions| image:: https://img.shields.io/pypi/pyversions/audresample.svg
     :target: https://pypi.org/project/audresample/
     :alt: audresamples's supported Python versions

@@ -1,6 +1,8 @@
-import audsp
-import audiofile as af
 import sox
+
+import audiofile as af
+import audsp
+
 
 dur = 1.0
 channel_list = [1, 2]

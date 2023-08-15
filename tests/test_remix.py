@@ -1,7 +1,7 @@
 import ctypes
 
-import pytest
 import numpy as np
+import pytest
 
 import audresample
 

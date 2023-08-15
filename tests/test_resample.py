@@ -1,11 +1,13 @@
 from glob import glob
 from os import path
 
-import pytest
-import audiofile as af
 import numpy as np
+import pytest
+
+import audiofile as af
 
 import audresample
+
 
 resampled_wavs = glob('tests/test-assets/resampled__*.wav')
 

@@ -1,9 +1,7 @@
 from audresample.core import define
-from audresample.core.api import (
-    am_fm_synth,
-    remix,
-    resample,
-)
+from audresample.core.api import am_fm_synth
+from audresample.core.api import remix
+from audresample.core.api import resample
 from audresample.core.config import config
 
 

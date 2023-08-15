@@ -65,8 +65,6 @@ elif 'win' in plat_name:
     library = '*.dll'
 
 setuptools.setup(
-    use_scm_version=True,
-    packages=setuptools.find_packages(),
     package_data={
         'audresample.core': [f'bin/{plat_name}/{library}']
     },
