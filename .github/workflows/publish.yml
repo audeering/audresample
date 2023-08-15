@@ -33,7 +33,7 @@ jobs:
     - name: Install build dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install build
+        pip install build virtualenv
 
     - name: Build wheels
       run: python -m build --wheel --outdir wheelhouse
