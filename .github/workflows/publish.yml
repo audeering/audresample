@@ -9,6 +9,12 @@ jobs:
   build:
 
     runs-on: 'ubuntu-latest'
+    environment: release
+    permissions:
+      contents: write
+      id-token: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     strategy:
       matrix:
         platform:
@@ -78,11 +84,8 @@ jobs:
         pip install twine
 
     # PyPI package
-    - name: Publish
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: python -m twine upload dist/*
+    - name: Publish Python package to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
 
     # Documentation
     - name: Install doc dependencies
@@ -106,13 +109,14 @@ jobs:
       run: |
         # Get bullet points from last CHANGELOG entry
         CHANGELOG=$(git diff -U0 HEAD^ HEAD | grep '^[+][\* ]' | sed 's/\+//')
-        # Support for multiline, see
-        # https://github.com/actions/create-release/pull/11#issuecomment-640071918
-        CHANGELOG="${CHANGELOG//'%'/'%25'}"
-        CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
-        CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
         echo "Got changelog: $CHANGELOG"
-        echo "::set-output name=body::$CHANGELOG"
+        # Support for multiline, see
+        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings
+        {
+          echo 'body<<EOF'
+          echo "$CHANGELOG"
+          echo EOF
+        } >> "$GITHUB_OUTPUT"
 
     - name: Create release on Github
       id: create_release
