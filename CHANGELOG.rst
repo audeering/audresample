@@ -7,6 +7,18 @@ The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
 
+Version 1.3.3 (2023-12-13)
+--------------------------
+
+* Added: support for Python 3.12
+* Fixed: avoid deprecation warning
+  by replacing
+  ``pkg_resources``
+  internally with
+  ``importlib.metadata``
+* Removed: support for Python 3.7
+
+
 Version 1.3.2 (2023-05-30)
 --------------------------
 
