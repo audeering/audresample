@@ -40,11 +40,7 @@ using :meth:`audresample.am_fm_synth`.
     sampling_rate = 16000
     num_samples = 16500
     num_channels = 3
-    signal = audresample.am_fm_synth(
-        num_samples,
-        num_channels,
-        sampling_rate,
-    )
+    signal = audresample.am_fm_synth(num_samples, num_channels, sampling_rate)
     signal.shape
 
 .. jupyter-execute::
@@ -56,10 +52,7 @@ Mixdown signal to mono.
 
 .. jupyter-execute::
 
-    mixed = audresample.remix(
-        signal,
-        mixdown=True,
-    )
+    mixed = audresample.remix(signal, mixdown=True)
     mixed.shape
 
 .. jupyter-execute::
@@ -71,10 +64,7 @@ Select the last channel.
 
 .. jupyter-execute::
 
-    mixed = audresample.remix(
-        signal,
-        channels=-1,
-    )
+    mixed = audresample.remix(signal, channels=-1)
     mixed.shape
 
 .. jupyter-execute::
@@ -86,10 +76,7 @@ Select the second and first channel.
 
 .. jupyter-execute::
 
-    mixed = audresample.remix(
-        signal,
-        channels=[1, 0],
-    )
+    mixed = audresample.remix(signal, channels=[1, 0])
     mixed.shape
 
 .. jupyter-execute::
@@ -101,11 +88,7 @@ Mixdown first and second channel to mono.
 
 .. jupyter-execute::
 
-    mixed = audresample.remix(
-        signal,
-        channels=[0, 1],
-        mixdown=True,
-    )
+    mixed = audresample.remix(signal, channels=[0, 1], mixdown=True)
     mixed.shape
 
 .. jupyter-execute::
@@ -127,11 +110,7 @@ using :meth:`audresample.am_fm_synth`.
     original_rate = 48000
     num_original = 16000
     num_channels = 2
-    signal = audresample.am_fm_synth(
-        num_original,
-        num_channels,
-        original_rate,
-    )
+    signal = audresample.am_fm_synth(num_original, num_channels, original_rate)
     signal.shape
 
 .. jupyter-execute::
@@ -145,11 +124,7 @@ Resample signal to 8kHz using
 .. jupyter-execute::
 
     target_rate = 8000
-    resampled = audresample.resample(
-        signal,
-        original_rate,
-        target_rate,
-    )
+    resampled = audresample.resample(signal, original_rate, target_rate)
     resampled.shape
 
 .. jupyter-execute::

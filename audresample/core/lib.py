@@ -32,34 +32,34 @@ def platform_name():
     system = platform.system()
     machine = platform.machine().lower()
 
-    if system == 'Linux':  # pragma: no cover
-        system = 'manylinux_2_17'
-    elif system == 'Windows':  # pragma: no cover
-        system = 'win'
-    elif system == 'Darwin':  # pragma: no cover
-        if machine == 'x86_64':
-            system = 'macosx_10_4'
+    if system == "Linux":  # pragma: no cover
+        system = "manylinux_2_17"
+    elif system == "Windows":  # pragma: no cover
+        system = "win"
+    elif system == "Darwin":  # pragma: no cover
+        if machine == "x86_64":
+            system = "macosx_10_4"
         else:
-            system = 'macosx_11_0'
+            system = "macosx_11_0"
     else:  # pragma: no cover
-        raise RuntimeError(f'Unsupported platform {system}')
+        raise RuntimeError(f"Unsupported platform {system}")
 
-    return f'{system}_{machine}'
+    return f"{system}_{machine}"
 
 
 # load library
 
 root = os.path.dirname(os.path.realpath(__file__))
-bin_path = os.path.join(root, 'bin')
+bin_path = os.path.join(root, "bin")
 
 plat_name = platform_name()
 
-if 'linux' in plat_name:  # pragma: no cover
-    library = 'libaudresample.so'
-elif 'macos' in plat_name:  # pragma: no cover
-    library = 'libaudresample.dylib'
-elif 'win' in plat_name:  # pragma: no cover
-    library = 'audresample.dll'
+if "linux" in plat_name:  # pragma: no cover
+    library = "libaudresample.so"
+elif "macos" in plat_name:  # pragma: no cover
+    library = "libaudresample.dylib"
+elif "win" in plat_name:  # pragma: no cover
+    library = "audresample.dll"
 
 lib_path = os.path.join(bin_path, plat_name, library)
 
@@ -67,6 +67,7 @@ lib = ctypes.cdll.LoadLibrary(lib_path)
 
 
 # resample
+
 
 class ConverterConfig(ctypes.Structure):  # noqa: D101
     _fields_ = [
