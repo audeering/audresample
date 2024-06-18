@@ -1,4 +1,3 @@
-from datetime import date
 import os
 import shutil
 
