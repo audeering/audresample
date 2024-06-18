@@ -9,23 +9,22 @@ from audresample.core.lib import lib
 
 
 def _check_signal(
-        signal: np.ndarray,
+    signal: np.ndarray,
 ) -> np.ndarray:
     r"""Ensure float32 and two dimensions."""
     if signal.ndim > 2:
         raise RuntimeError(
-            f"Input signal must have 1 or 2 dimension, "
-            f"got {signal.ndim}."
+            f"Input signal must have 1 or 2 dimension, " f"got {signal.ndim}."
         )
     return np.atleast_2d(signal)
 
 
 def am_fm_synth(
-        num_samples: int,
-        num_channels: int,
-        sampling_rate: int,
-        *,
-        dtype=np.float32,
+    num_samples: int,
+    num_channels: int,
+    sampling_rate: int,
+    *,
+    dtype=np.float32,
 ) -> np.ndarray:
     r"""Synthesizes an AM/FM signal.
 
@@ -56,19 +55,19 @@ def am_fm_synth(
         # No reinitialisation (to get true stereo)
         for t in range(num_samples):
             sig[idx, t] = g * np.cos(ph_fm)
-            sig[idx, t] *= ((1 - g_am) + g_am * np.square(np.cos(ph_am)))
+            sig[idx, t] *= (1 - g_am) + g_am * np.square(np.cos(ph_am))
             ph_am += omega_am / 2
             ph_fm += omega0_car + omega_dev * np.cos(omega_mod * t)
     return sig
 
 
 def remix(
-        signal: np.ndarray,
-        channels: typing.Union[int, typing.Sequence[int]] = None,
-        mixdown: bool = False,
-        *,
-        upmix: str = None,
-        always_copy: bool = False,
+    signal: np.ndarray,
+    channels: typing.Union[int, typing.Sequence[int]] = None,
+    mixdown: bool = False,
+    *,
+    upmix: str = None,
+    always_copy: bool = False,
 ) -> np.ndarray:
     r"""Remix a signal.
 
@@ -136,14 +135,14 @@ def remix(
                     f"You can use the 'upmix' argument "
                     f"to increase available channels."
                 )
-            elif upmix == 'zeros':
+            elif upmix == "zeros":
                 signal_ex = np.zeros(
                     (max_channel, signal.shape[1]),
                     dtype=signal.dtype,
                 )
-                signal_ex[:signal.shape[0], :] = signal
+                signal_ex[: signal.shape[0], :] = signal
                 signal = signal_ex
-            elif upmix == 'repeat':
+            elif upmix == "repeat":
                 # Upmix signal with [0, 1, 0, 1, ...]
                 num_repetitions = int(np.ceil(max_channel / signal.shape[0]))
                 signal_ex = np.concatenate([signal] * num_repetitions, axis=0)
@@ -166,12 +165,12 @@ def remix(
 
 
 def resample(
-        signal: np.ndarray,
-        original_rate: int,
-        target_rate: int,
-        *,
-        quality: define.ResampleQuality = config.DEFAULT_RESAMPLE_QUALITY,
-        always_copy: bool = False,
+    signal: np.ndarray,
+    original_rate: int,
+    target_rate: int,
+    *,
+    quality: define.ResampleQuality = config.DEFAULT_RESAMPLE_QUALITY,
+    always_copy: bool = False,
 ) -> np.ndarray:
     r"""Resample signal to a new sampling rate.
 
@@ -198,8 +197,7 @@ def resample(
     # We can only handle float32 signals
     if signal.dtype != np.float32:
         raise RuntimeError(
-            'Input signal must be of type float32/single, '
-            f'got {signal.dtype}.'
+            "Input signal must be of type float32/single, " f"got {signal.dtype}."
         )
 
     if original_rate == target_rate or signal.size == 0:
@@ -209,7 +207,9 @@ def resample(
             return signal
 
     converter_config = lib.init_converter_config(
-        float(original_rate), float(target_rate), ord(quality),
+        float(original_rate),
+        float(target_rate),
+        ord(quality),
     )
 
     channels = signal.shape[0]
@@ -224,7 +224,11 @@ def resample(
         signal_in_p = x.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
         signal_out_p = y.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
         lib.audresample_oneshot(
-            converter_config, signal_in_p, num_in, signal_out_p, num_out,
+            converter_config,
+            signal_in_p,
+            num_in,
+            signal_out_p,
+            num_out,
         )
 
     return target

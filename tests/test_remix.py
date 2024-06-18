@@ -31,7 +31,7 @@ def mixdown(signal):
 
 
 @pytest.mark.parametrize(
-    'signal, channels, mixdown, upmix, always_copy, expect',
+    "signal, channels, mixdown, upmix, always_copy, expect",
     [
         # empty signal
         (
@@ -62,7 +62,7 @@ def mixdown(signal):
             np.zeros((1, 0), dtype=np.float32),
             1,
             False,
-            'repeat',
+            "repeat",
             False,
             np.zeros((1, 0), dtype=np.float32),
         ),
@@ -70,7 +70,7 @@ def mixdown(signal):
             np.zeros((1, 0), dtype=np.float32),
             1,
             False,
-            'zeros',
+            "zeros",
             False,
             np.zeros((1, 0), dtype=np.float32),
         ),
@@ -78,7 +78,7 @@ def mixdown(signal):
             np.zeros((1, 0), dtype=np.float32),
             [0, 2],
             False,
-            'zeros',
+            "zeros",
             False,
             np.zeros((2, 0), dtype=np.float32),
         ),
@@ -127,7 +127,7 @@ def mixdown(signal):
             np.ones((1, 16000), np.float32),
             0,
             True,
-            'zeros',
+            "zeros",
             False,
             np.ones((1, 16000), dtype=np.float32),
         ),
@@ -135,7 +135,7 @@ def mixdown(signal):
             np.ones((1, 16000), np.float32),
             1,
             True,
-            'repeat',
+            "repeat",
             False,
             np.ones((1, 16000), dtype=np.float32),
         ),
@@ -143,7 +143,7 @@ def mixdown(signal):
             np.ones((1, 16000), np.float32),
             1,
             True,
-            'zeros',
+            "zeros",
             False,
             np.zeros((1, 16000), dtype=np.float32),
         ),
@@ -151,7 +151,7 @@ def mixdown(signal):
             np.ones((1, 16000), np.float32),
             -2,
             True,
-            'zeros',
+            "zeros",
             False,
             np.ones((1, 16000), dtype=np.float32),
         ),
@@ -159,7 +159,7 @@ def mixdown(signal):
             np.ones((1, 16000), np.float32),
             [0, 2],
             False,
-            'zeros',
+            "zeros",
             False,
             np.concatenate(
                 [
@@ -172,7 +172,7 @@ def mixdown(signal):
             np.ones((1, 16000), np.float32),
             [0, 2],
             True,
-            'zeros',
+            "zeros",
             False,
             0.5 * np.ones((1, 16000), dtype=np.float32),
         ),
@@ -229,7 +229,7 @@ def mixdown(signal):
             set_ones(np.zeros((3, 16000), np.float32), 0),
             [3, 0, 0],
             False,
-            'zeros',
+            "zeros",
             False,
             set_ones(np.zeros((3, 16000), np.float32), [1, 2]),
         ),
@@ -237,7 +237,7 @@ def mixdown(signal):
             set_ones(np.zeros((3, 16000), np.float32), 0),
             [3, 0, 0],
             False,
-            'repeat',
+            "repeat",
             False,
             np.ones((3, 16000), np.float32),
         ),
@@ -245,7 +245,7 @@ def mixdown(signal):
             set_ones(np.zeros((3, 16000), np.float32), 0),
             [-6, 0, 0],
             False,
-            'repeat',
+            "repeat",
             False,
             np.ones((3, 16000), np.float32),
         ),
@@ -259,12 +259,12 @@ def mixdown(signal):
             mixdown(audresample.am_fm_synth(16000, 2, 16000)),
         ),
         (
-            np.zeros((3, 16000), dtype='float64'),
+            np.zeros((3, 16000), dtype="float64"),
             None,
             True,
             None,
             False,
-            np.zeros((1, 16000), dtype='float64'),
+            np.zeros((1, 16000), dtype="float64"),
         ),
         (
             audresample.am_fm_synth(16000, 3, 16000),
@@ -325,20 +325,20 @@ def mixdown(signal):
             np.zeros((2, 16000)),
             2,
             False,
-            'fancy',
+            "fancy",
             False,
             None,
             marks=pytest.mark.xfail(raises=ValueError),
         ),
-    ]
+    ],
 )
 def test_remix_signal(
-        signal,
-        channels,
-        mixdown,
-        upmix,
-        always_copy,
-        expect,
+    signal,
+    channels,
+    mixdown,
+    upmix,
+    always_copy,
+    expect,
 ):
     result = audresample.remix(
         signal,
@@ -349,12 +349,7 @@ def test_remix_signal(
     )
     assert signal.dtype == expect.dtype
     np.testing.assert_equal(result, expect)
-    if (
-            signal.size > 0
-            and channels is None
-            and not mixdown
-            and signal.ndim == 2
-    ):
+    if signal.size > 0 and channels is None and not mixdown and signal.ndim == 2:
         if always_copy:
             assert id(signal) != id(result)
         else:
