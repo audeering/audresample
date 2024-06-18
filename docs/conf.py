@@ -1,4 +1,3 @@
-from datetime import date
 import os
 import shutil
 
@@ -13,7 +12,6 @@ config = toml.load(audeer.path("..", "pyproject.toml"))
 # Project -----------------------------------------------------------------
 project = config["project"]["name"]
 author = ", ".join(author["name"] for author in config["project"]["authors"])
-copyright = f"2020-{date.today().year} audEERING GmbH"
 version = audeer.git_repo_version()
 title = "Documentation"
 
