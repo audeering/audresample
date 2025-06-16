@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                v1.3.3
+                v1.3.4
               </div>
             
           
@@ -160,16 +160,12 @@ and a sampling rate of 16kHz
 using <a class="reference internal" href="api/audresample.am_fm_synth.html#audresample.am_fm_synth" title="audresample.am_fm_synth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.am_fm_synth()</span></code></a>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">audresample</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">audresample</span>
 
 <span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">16000</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">16500</span>
 <span class="n">num_channels</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">signal</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">am_fm_synth</span><span class="p">(</span>
-    <span class="n">num_samples</span><span class="p">,</span>
-    <span class="n">num_channels</span><span class="p">,</span>
-    <span class="n">sampling_rate</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">am_fm_synth</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="p">)</span>
 <span class="n">signal</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -188,10 +184,7 @@ using <a class="reference internal" href="api/audresample.am_fm_synth.html#audre
 <p>Mixdown signal to mono.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
-    <span class="n">signal</span><span class="p">,</span>
-    <span class="n">mixdown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">mixdown</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">mixed</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -210,10 +203,7 @@ using <a class="reference internal" href="api/audresample.am_fm_synth.html#audre
 <p>Select the last channel.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
-    <span class="n">signal</span><span class="p">,</span>
-    <span class="n">channels</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">channels</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">mixed</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -232,10 +222,7 @@ using <a class="reference internal" href="api/audresample.am_fm_synth.html#audre
 <p>Select the second and first channel.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
-    <span class="n">signal</span><span class="p">,</span>
-    <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">mixed</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -254,11 +241,7 @@ using <a class="reference internal" href="api/audresample.am_fm_synth.html#audre
 <p>Mixdown first and second channel to mono.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span>
-    <span class="n">signal</span><span class="p">,</span>
-    <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="n">mixdown</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">remix</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">mixdown</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">mixed</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -282,16 +265,12 @@ and a sampling rate of 48kHz
 using <a class="reference internal" href="api/audresample.am_fm_synth.html#audresample.am_fm_synth" title="audresample.am_fm_synth"><code class="xref py py-meth docutils literal notranslate"><span class="pre">audresample.am_fm_synth()</span></code></a>.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">audresample</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">audresample</span>
 
 <span class="n">original_rate</span> <span class="o">=</span> <span class="mi">48000</span>
 <span class="n">num_original</span> <span class="o">=</span> <span class="mi">16000</span>
 <span class="n">num_channels</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">signal</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">am_fm_synth</span><span class="p">(</span>
-    <span class="n">num_original</span><span class="p">,</span>
-    <span class="n">num_channels</span><span class="p">,</span>
-    <span class="n">original_rate</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">am_fm_synth</span><span class="p">(</span><span class="n">num_original</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">original_rate</span><span class="p">)</span>
 <span class="n">signal</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -312,11 +291,7 @@ using <a class="reference internal" href="api/audresample.am_fm_synth.html#audre
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_rate</span> <span class="o">=</span> <span class="mi">8000</span>
-<span class="n">resampled</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
-    <span class="n">signal</span><span class="p">,</span>
-    <span class="n">original_rate</span><span class="p">,</span>
-    <span class="n">target_rate</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="n">resampled</span> <span class="o">=</span> <span class="n">audresample</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">original_rate</span><span class="p">,</span> <span class="n">target_rate</span><span class="p">)</span>
 <span class="n">resampled</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -358,7 +333,7 @@ using <a class="reference internal" href="api/audresample.am_fm_synth.html#audre
         
         
         
-          Built with <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> on 2023/12/13 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org">Sphinx</a> on 2025/06/16 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
@@ -366,7 +341,7 @@ using <a class="reference internal" href="api/audresample.am_fm_synth.html#audre
   <div role="contentinfo">
     <p>
         
-      &copy; 2020-2023 audEERING GmbH
+      &copy; audEERING GmbH
     </p>
   </div> 
 
