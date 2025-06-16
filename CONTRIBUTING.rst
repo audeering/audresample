@@ -52,8 +52,8 @@ You can enable those checks locally by executing::
 Afterwards ruff_ and codespell_ are executed
 every time you create a commit.
 
-You can also install ruff_ and codespell_
-and call it directly::
+Alternatively,
+you can run ruff_ and codespell_ directly using ``uvx``::
 
     uvx ruff check --fix .  # lint all Python files, and fix any fixable errors
     uvx ruff format .  # format code of all Python files
