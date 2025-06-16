@@ -1,5 +1,7 @@
+from __future__ import annotations
+
+from collections.abc import Sequence
 import ctypes
-import typing
 
 import numpy as np
 
@@ -63,10 +65,10 @@ def am_fm_synth(
 
 def remix(
     signal: np.ndarray,
-    channels: typing.Union[int, typing.Sequence[int]] = None,
+    channels: int | Sequence[int] | None = None,
     mixdown: bool = False,
     *,
-    upmix: str = None,
+    upmix: str | None = None,
     always_copy: bool = False,
 ) -> np.ndarray:
     r"""Remix a signal.
