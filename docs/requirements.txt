@@ -1,9 +1,0 @@
-audeer >=1.18.0
-ipykernel
-jupyter-sphinx
-matplotlib
-sphinx
-sphinx-audeering-theme >=1.2.1
-sphinx-autodoc-typehints
-sphinx-copybutton
-toml
