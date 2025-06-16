@@ -43,6 +43,25 @@ repository = 'https://github.com/audeering/audresample/'
 documentation = 'https://audeering.github.io/audresample/'
 
 
+# ===== Dependency groups =================================================
+[dependency-groups]
+dev = [
+    'audiofile',
+    'audeer >=1.18.0',
+    'ipykernel',
+    'jupyter-sphinx',
+    'matplotlib',
+    'pytest',
+    'pytest-cov',
+    'pytest-doctestplus',
+    'sphinx',
+    'sphinx-audeering-theme >=1.2.1',
+    'sphinx-autodoc-typehints',
+    'sphinx-copybutton',
+    'toml',
+]
+
+
 # ===== BUILD-SYSTEM ======================================================
 #
 # Requirements for building the Python package

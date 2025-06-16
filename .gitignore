@@ -7,3 +7,4 @@ dist/
 venv/
 .coverage*
 docs/api/
+uv.lock

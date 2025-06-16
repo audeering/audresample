@@ -34,18 +34,17 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install build dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install build virtualenv
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
+
 
     - name: Build wheels
-      run: python -m build --wheel --outdir wheelhouse
+      run: uv build --wheel --out-dir wheelhouse
       env:
         PLAT_NAME: ${{ matrix.platform }}
 
     - name: Build source distribution
-      run: python -m build --sdist --outdir wheelhouse
+      run: uv build --sdist --out-dir wheelhouse
       if: matrix.platform == 'manylinux_2_17_x86_64'
 
     - uses: actions/upload-artifact@v4
@@ -87,14 +86,11 @@ jobs:
         packages-dir: wheelhouse/
 
     # Documentation
-    - name: Install doc dependencies
-      run: |
-        pip install -r requirements.txt
-        pip install -r docs/requirements.txt
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
 
     - name: Build documentation
-      run: |
-        python -m sphinx docs/ docs/_build/ -b html
+      run: uv run python -m sphinx docs/ docs/_build/ -b html
 
     - name: Deploy documentation to Github pages
       uses: peaceiris/actions-gh-pages@v4

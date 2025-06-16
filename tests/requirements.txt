@@ -1,4 +1,0 @@
-audiofile
-pytest
-pytest-cov
-pytest-doctestplus
