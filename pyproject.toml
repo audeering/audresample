@@ -9,7 +9,8 @@ authors = [
 ]
 description = 'Resample and remix an audio signal'
 readme = 'README.rst'
-license = {file = 'LICENSE'}
+license = 'MIT'
+license-files = ['LICENSE']
 keywords = [
     'audio',
     'dsp',
