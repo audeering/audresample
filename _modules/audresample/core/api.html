@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                v1.3.4
+                v1.3.5
               </div>
             
           
@@ -142,9 +142,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for audresample.core.api</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ctypes</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -160,7 +158,7 @@
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Ensure float32 and two dimensions.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">signal</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Input signal must have 1 or 2 dimension, &quot;</span> <span class="sa">f</span><span class="s2">&quot;got </span><span class="si">{</span><span class="n">signal</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Input signal must have 1 or 2 dimension, got </span><span class="si">{</span><span class="n">signal</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2">.&quot;</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
 
@@ -343,7 +341,7 @@
     <span class="c1"># We can only handle float32 signals</span>
     <span class="k">if</span> <span class="n">signal</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-            <span class="s2">&quot;Input signal must be of type float32/single, &quot;</span> <span class="sa">f</span><span class="s2">&quot;got </span><span class="si">{</span><span class="n">signal</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Input signal must be of type float32/single, got </span><span class="si">{</span><span class="n">signal</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">.&quot;</span>
         <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">original_rate</span> <span class="o">==</span> <span class="n">target_rate</span> <span class="ow">or</span> <span class="n">signal</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -393,7 +391,7 @@
         
         
         
-          Built with <a href="https://www.sphinx-doc.org">Sphinx</a> on 2025/06/16 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
+          Built with <a href="https://www.sphinx-doc.org">Sphinx</a> on 2025/10/14 using the <a href="https://github.com/audeering/sphinx-audeering-theme/">audEERING theme</a>
         
     </p>
   </div>
