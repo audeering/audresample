@@ -1,10 +1,14 @@
 import os
 import shutil
 
+import matplotlib
 import toml
 
 import audeer
 
+
+# Silence Matplotlib warnings
+matplotlib.set_loglevel("critical")
 
 config = toml.load(audeer.path("..", "pyproject.toml"))
 
