@@ -16,7 +16,7 @@ for n_ch in channel_list:
         for sr_out in sr_list:
             if sr_out == sr_in:
                 continue
-            wav = f"resampled__sr-in_{sr_in}__sr-out_{sr_out}__channels" f"_{n_ch}.wav"
+            wav = f"resampled__sr-in_{sr_in}__sr-out_{sr_out}__channels_{n_ch}.wav"
             tfm = sox.Transformer()
             tfm.rate(sr_out)
             tfm.build(wav_original, wav)

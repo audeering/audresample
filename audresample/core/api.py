@@ -14,7 +14,7 @@ def _check_signal(
     r"""Ensure float32 and two dimensions."""
     if signal.ndim > 2:
         raise RuntimeError(
-            f"Input signal must have 1 or 2 dimension, " f"got {signal.ndim}."
+            f"Input signal must have 1 or 2 dimension, got {signal.ndim}."
         )
     return np.atleast_2d(signal)
 
@@ -197,7 +197,7 @@ def resample(
     # We can only handle float32 signals
     if signal.dtype != np.float32:
         raise RuntimeError(
-            "Input signal must be of type float32/single, " f"got {signal.dtype}."
+            f"Input signal must be of type float32/single, got {signal.dtype}."
         )
 
     if original_rate == target_rate or signal.size == 0:
