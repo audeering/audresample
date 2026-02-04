@@ -67,6 +67,9 @@ autodoc_mock_imports = [
 # https://github.com/sphinx-doc/sphinx/issues/6316
 toc_object_entries = False
 
+linkcheck_ignore = [
+    "https://sourceforge.net/projects/soxr/",
+]
 
 # HTML --------------------------------------------------------------------
 
