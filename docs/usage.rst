@@ -12,16 +12,17 @@ Usage
     def plot_signal(signal, sampling_rate):
         num_channels = signal.shape[0]
         num_samples = signal.shape[1]
-        plt.rcParams["figure.figsize"] = [12, 2 * num_channels]
-        t = np.linspace(0, num_samples / sampling_rate, num_samples)
+        figsize = (12, 2 * num_channels)
+        t = np.arange(num_samples) / sampling_rate
         if num_channels > 1:
-            fig, axs = plt.subplots(nrows=num_channels)
+            fig, axs = plt.subplots(nrows=num_channels, figsize=figsize)
             for ax, channel in zip(axs, signal):
                 ax.plot(t, channel)
                 ax.set_xlabel("Time / s")
                 ax.set_ylabel("Magnitude")
                 ax.set_ylim([-1, 1])
         else:
+            plt.figure(figsize=figsize)
             plt.plot(t, signal.squeeze())
             plt.xlabel("Time / s")
             plt.ylabel("Magnitude")
@@ -68,7 +69,7 @@ Select the last channel.
     (1, 16500)
     >>> plot_signal(mixed, sampling_rate)
 
-Select the second and first channel.
+Select the second and first channels.
 
 .. plot::
     :context: close-figs
@@ -78,7 +79,7 @@ Select the second and first channel.
     (2, 16500)
     >>> plot_signal(mixed, sampling_rate)
 
-Mixdown first and second channel to mono.
+Mix down the first and second channels to mono.
 
 .. plot::
     :context: close-figs

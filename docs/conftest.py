@@ -21,16 +21,17 @@ def plot_signal(signal, sampling_rate):
     """Plot audio signal (used inside usage.rst doctests)."""
     num_channels = signal.shape[0]
     num_samples = signal.shape[1]
-    plt.rcParams["figure.figsize"] = [12, 2 * num_channels]
-    t = np.linspace(0, num_samples / sampling_rate, num_samples)
+    figsize = (12, 2 * num_channels)
+    t = np.arange(num_samples) / sampling_rate
     if num_channels > 1:
-        fig, axs = plt.subplots(nrows=num_channels)
+        fig, axs = plt.subplots(nrows=num_channels, figsize=figsize)
         for ax, channel in zip(axs, signal):
             ax.plot(t, channel)
             ax.set_xlabel("Time / s")
             ax.set_ylabel("Magnitude")
             ax.set_ylim([-1, 1])
     else:
+        plt.figure(figsize=figsize)
         plt.plot(t, signal.squeeze())
         plt.xlabel("Time / s")
         plt.ylabel("Magnitude")
