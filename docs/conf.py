@@ -42,8 +42,18 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
     "sphinx_copybutton",
-    "jupyter_sphinx",
+    "matplotlib.sphinxext.plot_directive",  # include resulting figures in doc
 ]
+
+# Do not copy prompt output when using the "copy to clipboard" button
+copybutton_prompt_text = r">>> |\.\.\. "
+copybutton_prompt_is_regexp = True
+
+# Matplotlib plot_directive settings
+plot_include_source = True
+plot_html_show_source_link = False
+plot_html_show_formats = False
+plot_formats = ["png"]
 
 napoleon_use_ivar = True  # List of class attributes
 autodoc_inherit_docstrings = False  # disable docstring inheritance

@@ -13,7 +13,7 @@ as provided by `audresamplelib`_.
 
 Have a look at the installation_ and usage_ instructions.
 
-.. code-block:: python
+.. code-block:: pycon
 
     >>> import numpy as np
     >>> import audresample
