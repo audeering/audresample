@@ -49,16 +49,14 @@ documentation = 'https://audeering.github.io/audresample/'
 dev = [
     'audiofile',
     'audeer >=1.18.0',
-    'ipykernel',
-    'jupyter-sphinx',
     'matplotlib',
     'pytest',
     'pytest-cov',
-    'pytest-doctestplus',
     'sphinx',
     'sphinx-audeering-theme >=1.2.1',
     'sphinx-autodoc-typehints',
     'sphinx-copybutton',
+    'sybil',
     'toml',
 ]
 
@@ -86,7 +84,7 @@ skip = './audresample.egg-info,./build,./docs/api,./docs/_templates,./docs/examp
 cache_dir = '.cache/pytest'
 xfail_strict = true
 addopts = '''
-    --doctest-plus
+    -p no:doctest
     --cov=audresample
     --cov-fail-under=100
     --cov-report term-missing
