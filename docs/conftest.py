@@ -3,6 +3,7 @@ from doctest import NORMALIZE_WHITESPACE
 
 import matplotlib
 
+
 # Use a non-interactive backend to avoid opening windows during doctests
 matplotlib.use("Agg")
 
