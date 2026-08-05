@@ -36,6 +36,8 @@ jobs:
 
     - name: Install uv
       uses: astral-sh/setup-uv@v9.0.0
+      with:
+        cache-suffix: ${{ github.workflow }}
 
 
     - name: Build wheels
@@ -90,6 +92,8 @@ jobs:
     # Documentation
     - name: Install uv
       uses: astral-sh/setup-uv@v9.0.0
+      with:
+        cache-suffix: ${{ github.workflow }}
 
     - name: Build documentation
       run: uv run python -m sphinx docs/ docs/_build/ -b html
