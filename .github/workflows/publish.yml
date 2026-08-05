@@ -24,18 +24,18 @@ jobs:
         - win_amd64
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       # Need more than a shallow clone to get version from tags
       with:
         fetch-depth: 2
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: '3.12'
 
     - name: Install uv
-      uses: astral-sh/setup-uv@v5
+      uses: astral-sh/setup-uv@v9.0.0
 
 
     - name: Build wheels
@@ -64,7 +64,7 @@ jobs:
     steps:
 
     - name: Clone repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       # Need depth to get diff for changelog
       with:
         fetch-depth: 1
@@ -77,7 +77,7 @@ jobs:
         merge-multiple: true
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: '3.10'
 
@@ -89,7 +89,7 @@ jobs:
 
     # Documentation
     - name: Install uv
-      uses: astral-sh/setup-uv@v5
+      uses: astral-sh/setup-uv@v9.0.0
 
     - name: Build documentation
       run: uv run python -m sphinx docs/ docs/_build/ -b html
