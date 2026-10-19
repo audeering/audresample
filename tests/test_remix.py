@@ -354,3 +354,51 @@ def test_remix_signal(
             assert id(signal) != id(result)
         else:
             assert id(signal) == id(result)
+
+
+@pytest.mark.parametrize(
+    "channel",
+    [
+        np.int8(1),
+        np.int16(1),
+        np.int32(1),
+        np.int64(1),
+        np.uint8(1),
+        np.uint16(1),
+        np.uint32(1),
+        np.uint64(1),
+        np.int8(-1),
+        np.int16(-1),
+        np.int32(-1),
+        np.int64(-1),
+    ],
+)
+def test_remix_numpy_scalar(channel):
+    signal = np.arange(6, dtype=np.float32).reshape(2, 3)
+    actual = audresample.remix(signal, channel)
+    np.testing.assert_array_equal(actual, signal[[int(channel)]])
+
+
+@pytest.mark.parametrize("container", [list, np.asarray])
+@pytest.mark.parametrize("upmix", ["zeros", "repeat"])
+@pytest.mark.parametrize(
+    "channels, repeat_indices, zero_indices",
+    [
+        (np.array([127, 0], dtype=np.int8), [1, 0], [None, 0]),
+        (np.array([-128, 0], dtype=np.int8), [0, 0], [0, 0]),
+        (np.array([255, 0], dtype=np.uint8), [1, 0], [None, 0]),
+    ],
+)
+def test_remix_numpy_channel_bounds(
+    channels, repeat_indices, zero_indices, upmix, container
+):
+    signal = np.arange(6, dtype=np.float32).reshape(2, 3)
+    expected_indices = repeat_indices if upmix == "repeat" else zero_indices
+    expected = np.stack(
+        [
+            signal[i] if i is not None else np.zeros(3, dtype=np.float32)
+            for i in expected_indices
+        ]
+    )
+    actual = audresample.remix(signal, container(channels), upmix=upmix)
+    np.testing.assert_array_equal(actual, expected)

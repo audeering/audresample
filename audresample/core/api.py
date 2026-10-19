@@ -63,7 +63,7 @@ def am_fm_synth(
 
 def remix(
     signal: np.ndarray,
-    channels: int | Sequence[int] | None = None,
+    channels: int | np.integer | Sequence[int] | None = None,
     mixdown: bool = False,
     *,
     upmix: str | None = None,
@@ -118,12 +118,12 @@ def remix(
     signal = _check_signal(signal)
 
     if channels is not None:
-        if isinstance(channels, int):
+        if isinstance(channels, (int, np.integer)):
             channels = [channels]
         max_channel = max(
             [
-                max(channels) + 1,
-                abs(min(channels)),  # we can have -1 entries
+                int(max(channels)) + 1,
+                abs(int(min(channels))),  # we can have -1 entries
             ]
         )
         num_channels = signal.shape[0]
